@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Person extends Authenticatable
 {
-    use HasFactory;
+    // use HasFactory;
     protected $table = 'people';
     protected $guarded = ['id'];
     protected $fillable = [
@@ -22,4 +22,7 @@ class Person extends Authenticatable
         'uuid',
         'status'
     ];
+    public function staff(){
+        return $this->hasOne(Staff::class, 'person_id');
+    }
 }

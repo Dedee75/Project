@@ -21,6 +21,10 @@ class AdminController extends Controller
         return view('admin.adminDashboard');
     }
 
+    public function login(){
+        return view('admin.login');
+    }
+
     public function register(){
         $role = DB::table('roles')->select('id', 'name')->where('status','=','Active')->get();
         return view('admin.create',compact('role'));

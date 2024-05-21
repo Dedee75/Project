@@ -32,10 +32,10 @@ class CustomerController extends Controller
 
     public function process(Request $request){
         // dd($request);
-        $roleid = $request->role;
+        // $roleid = $request->role;
         $uuid = Str::uuid()->toString();
         $image = $uuid. '.'.$request->image->extension();
-        $request->image->move(public_path('img/staff/'),$image);
+        $request->image->move(public_path('img/customer/'),$image);
         $people = new Person();
         $people->name = $request->name;
         $people->email = $request->email;
@@ -49,7 +49,7 @@ class CustomerController extends Controller
         $people->save();
         // dd($uuid);
         // dd($this->adminRepository);
-        $response = $this->customerRepository->saveRecords($roleid,$uuid);
+        $response = $this->customerRepository->saveRecords($uuid);
         return $response;
     }
 }

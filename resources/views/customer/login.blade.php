@@ -4,9 +4,15 @@
 
 <div class="mainLoginForm">
     <div class="customer-login">
+        <h1>Cusutomer Login Form</h1>
+
         <div class="customer-Login-Form">
-            <h2>Csutomer Login From</h2>
-            <form method="post" action="{{route('customerLoginProcess')}}" class="A-login">
+
+            <div>
+                <img src="" alt="" style="width:300px; height:300px;">
+            </div>
+
+            <form method="post" action="{{route('customerLoginProcess')}}" class="customerLogin">
                 @csrf
                 <input type="hidden" name="usertype" value="customer"/>
                 <div class="login-form">
@@ -15,9 +21,9 @@
                 </div>
                 <div class="login-form">
                     <label for="password"><b>Password</b></label>
-                    <input type="password" class="customerform" name="password" id="password" />
+                    <input type="password" class="customerform2" name="password" id="password" placeholder="Please Enter Password">
                 </div>
-                <button type="submit" class="btn abtn" name="login" > Login </button>
+                <button type="submit" class="btn btn2" name="login" > Login </button>
             </form>
 
         </div>

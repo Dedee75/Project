@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <link rel="stylesheet" href="{{asset('customer/login/login.css')}}">
-    <link rel="stylesheet" href="{{asset('')}}">
+    <link rel="stylesheet" href="{{asset('CSS/customer/login/login.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/customer/register/register.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/customer/layout.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js">
@@ -19,13 +20,14 @@
 
             <div class="topheader">
                 <div></div>
-                <div>Welcome To Our Online Shop</div>
-                <div>
+               <p> Welcome To Our Online Shop</p>
+                <div class="top-nav-login">
                     <div>
-                        <img src=""style="width:80px; height:80px; border-radius: 50%;">
+                        <img src=""style="width:30px; height:30px; border-radius: 50%;">
+                    </div>
+                    <div>
                         <a href="">Guest</a>
                     </div>
-
                     <div>
                         <a href="">Login</a>
                     </div>
@@ -35,15 +37,15 @@
                     </div>
 
                     <div>
-                        <p>USD</p>
+                        <a href="">USD</a>
                     </div>
 
                 </div>
             </div>
 
             <div class="navigation">
-                <div>
-                    <img src="" alt="">
+                <div class="mainLogo">
+                    <img src="" alt="" style="width:40px; height:40px; border-radius: 50%;">
                     <p>Tech 2 Go</p>
                 </div>
 
@@ -56,44 +58,56 @@
                         <a class="nav-link" href="#">Feedback </a>
                     </div>
                 </div>
+
+                <div>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+
+                <div>
+                    <img src="" alt="" style="width:30px; height:30px; border-radius: 50%;">
+                </div>
+
             </div>
 
-            <div>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+
         </header>
         <main>
             <div class="customer-body">
                 @yield("customerbody")
 
             </div>
-
         </main>
 
         <footer>
-            <div>
-                <h4>Tech 2 Go</h4>
-                <p>No.322,Pansodan.yangon.Myanmar</p>
-                <p>+959 796 366 636</p>
-                <p>Tech2go@shopping.com</p>
+            <div class="mainfooter">
+                <div>
+                    <h3>Tech 2 Go</h3>
+                    <p>No.322,Pansodan.yangon.Myanmar</p>
+                    <p>+959 796 366 636</p>
+                    <p>Tech2go@shopping.com</p>
+                </div>
+
+                <div>
+                    <h3>Customer Service</h3>
+                    <p>Return Policy</p>
+                    <p>Delivery Inform</p>
+                    <p>Privacy Policy</p>
+                </div>
+
+                <div>
+                    <h3>Subscribe</h3>
+                    <p>Reduce update , hot deals, discounts sent straight to your inbox  daily</p>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <p>Secure Payment</p>
+
+                </div>
             </div>
 
-            <div>
-                <h4>Customer Service</h4>
-                <p>Return Policy</p>
-                <p>Delivery Inform</p>
-                <p>Privacy Policy</p>
-            </div>
-
-            <div>
-                <h4>Subscribe</h4>
-                <p>Reduce update , hot deals, discounts sent straight to your inbox  daily</p>
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <h4>Secure Payment</h4>
-
+            <div class="lastfooter">
+                <p>© 2023 Tech 2 Go. Designs By O-Technique  Myanmar</p>
             </div>
         </footer>
     </section>

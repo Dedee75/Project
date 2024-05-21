@@ -23,12 +23,17 @@ Route::post('/customer/login/process',[LoginController::class,'login'])->name('c
 Route::get('/customer/register',[CustomerController::class,'register']);
 Route::post('/customer/register/process',[CustomerController::class,'process'])->name('customer-register-process');
 // Route::get('/customer/dashboard',[CustomerController::class,'dashboard'])->name('customerDashboard');
-
+// Route::get('/admin/login',[CustomerController::class,'login'])->name('customerLogin');
+Route::get('/admin/login',[AdminController::class,'login'])->name('adminLogin');
+Route::post('/admin/login/process',[LoginController::class,'login'])->name('adminLoginProcess');
 Route::middleware(['admin'])->group(function(){
-    Route::get('/admin/register',[AdminController::class,'register']);
+
+});
+
+Route::get('/admin/register',[AdminController::class,'register']);
     Route::post('/admin/register/process',[AdminController::class,'process'])->name('admin-register-process');
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
-});
+
 
 Route::middleware(['customer'])->group(function(){
 

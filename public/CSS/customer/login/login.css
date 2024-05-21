@@ -6,9 +6,61 @@
     font-style: normal;
   }
 
-  .topheader{
+
+
+.customer-login{
+    height: 80vh;
+    width: 100%;
+
+}
+
+.customer-login h1
+{
+    text-align: center;
+    margin-top: 40px;
+}
+.customer-Login-Form{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-  }
+}
+
+.customer-Login-Form form{
+    width: 250px;
+    height: 500px;
+}
+
+.login-form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.customerLogin{
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;align-items: center;
+}
+
+.login-form input{
+    width: 200px;
+    height: 30px;
+    margin-top: 30px;
+    border: none;
+}
+
+.btn2{
+    width: 150px;
+    height: 30px;
+    /* margin-left: 30px; */
+    margin-top: 20px;
+    background-color: #08BABA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.d-flex input{
+    border: none;
+    width: 200px;
+}

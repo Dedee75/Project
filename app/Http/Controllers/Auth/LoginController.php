@@ -43,14 +43,74 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        dd($request);
-        $validate = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-        $validateData['password'] = bcrypt($validate['password']);
         $input = $request->all();
-        $userdata = array('email' => $input['email'], 'password' => $input['password']);
+
+        // $this->validate($request, [
+        //     'email' => 'required|email',
+        //     'password' => 'required'
+
+        // ]);
+
+        // dd($input);
+        $userdata =array('email'=> $input['email'],
+        'password'=> $input['password']); // dd(auth('admin'), auth('admin')->attempt($userdata));
+
+        if($input['usertype'] == "admin"){
+            if(auth('admin')->attempt($userdata)){
+                $user= auth('admin')->user();
+                // $customer = auth('customer')->user();
+                // dd($user);
+                if($user->status== 'ACTIVE'){
+                        // dd(auth('admin')->user());
+                    return redirect()->route('adminDashboard');
+                }
+                else{
+
+                    Auth::logout();
+                        // auth('admin')->logout();
+                    return redirect()->route('adminLogin')->with('message','You don\'t have Admin Access!');
+                        // redirect('/')->with('error','You don\'t have Admin Access!');
+                }
+            }
+            else{
+
+                Auth::logout();
+                return redirect()->route('adminLogin')->with('message','Wrong Email and Password!');
+            }
+
+        }
+        if($input['usertype'] == "customer"){
+// dd('Reach');
+// dd($userdata);
+            if(auth('customer')->attempt($userdata)){
+                $customer= auth('customer')->user();
+                // dd($customer);
+                if($customer->status== 'ACTIVE'){
+                    // dd(auth('admin')->user());
+                    if(session()->get('cart') == null){
+                        return redirect()->route('Customerhome');
+                    }else{
+                        return redirect()->route('addtocartinfo');
+                    }
+
+                }
+                else{
+
+                    Auth::logout();
+                    // auth('admin')->logout();
+                    return redirect()->route('customeLogin')->with('message','You don\'t have Customer Access!');
+                }
+            }
+            else{
+                    Auth::logout();
+                    return redirect()->route('customeLogin')->with('message','Wrong Email and Password!');
+            }
+
+        }
+        else{
+
+            return redirect('Login')->with('error','You don\'t have Admin Access!');
+        }
     }
 
     public function logout(Request $request)
