@@ -16,22 +16,22 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth('admin')->check()){
-            
-            if(auth('admin')->check())
+        if(auth('admin')->check())
+        {
+
+            if (auth('admin')->check())
             {
-                // if(auth('admin')->user()->role->name == 'Admin'){
-                    return $next($request);
-
-                // }
+                //return redirect()-> route('admin.dashboard');
+                return $next($request);
             }
-            else{
+            else
+            {
+               // return redirect('home')->with('error', 'You don\'tave admin access'); ->with so session send
+
                 return redirect('/admin/login')->with('error','You don\'t have Admin Access!');
-
-
             }
         }
-        return redirect('/admin/login')->with('error','You don\'t have Admin Access!');
 
+        return redirect('/admin/login')->with('error','You don\'t have Admin Access!');
     }
 }

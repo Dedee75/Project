@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Staff extends Model
 {
@@ -17,5 +19,14 @@ class Staff extends Model
         'uuid'
 
     ];
+
+    public function people():BelongsTo
+    {
+        return $this->belongsTo(Person::class, 'person_id');
+    }
+    public function role():BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
 
 }

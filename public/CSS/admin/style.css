@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+.adminnavbar{
+    height: 50px;
+    line-height: .5em;
+    background-color: #6eaf1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.adminnavbar .login{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn{
+    border: 0;
+    outline: none;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+    width: 130px;
+    border-radius: 10px;
+    background-color: #5c5564;
+    color: #f7d9de;
+    cursor: pointer;
+    &:hover{
+        outline: none;
+        color: #eec9c2;
+        background: #212b3c;
+    }
+    &:active{
+        outline: none;
+    }
+}
+
+.main-container{
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: 10% 90%;
+    position: relative;
+    height: 99.7vh;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.main-header{
+    position: relative;
+    width: 100%;
+    border: 1px solid gray;
+    box-shadow: 10px 10px 19px -7px rgba(196,187,187,0.75);
+    -webkit-box-shadow: 10px 10px 19px -7px rgba(196,187,187,0.75);
+    -moz-box-shadow: 10px 10px 19px -7px rgba(196,187,187,0.75);
+}
+
+.main-nav{
+    padding-top: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+.title{
+    height: 50px;
+
+}
+img{
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+
+.admin-navbar{
+    display: grid;
+    height: 80px;
+    position: relative;
+    background-color: #3D8DF5;
+}
+
+
+.nav-col{
+    height:60px;
+}
+
+.admin-navbar .img-col{
+    width: 100%;
+}
+
+.adminbar{
+    display: flex;
+    /* grid-template-columns: 10% 90%;
+    align-items: center;
+    padding-left:20px;
+    width: 100%; */
+    justify-content: space-around;
+    align-items: center;
+
+}
+.adminbar img{
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.header-title{
+    width: 100%;
+    color: #fff;
+}
+
+
+.nav-container{
+    line-height: 30px;
+}
+
+.nav-container li{
+    height: 30px;
+    margin-top: 30px;
+}
+
+.nav-container li a{
+    text-decoration: none;
+}
+
+li span {
+    margin-left: 10px;
+}
+.main-col{
+    display: block;
+}
+.admin-body {
+    padding: 20px;
+}
+
+.page-titl{
+    display: flex;
+    height: 40px;
+}
+
+.page-titl i {
+    width: 30px;
+}
+
+.body-container{
+    border: 1px solid gray;
+
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.admin-Register-Form{
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+}
+
+.admin-Register-Form h2{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.form-group{
+    position: relative;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    height: 50px;
+    padding-left: 20px;
+
+}
+
+.form-group input{
+    height: 30px;
+    width: 95%;
+    border-radius: 5px;
+    border:1px solid gray;
+    padding-left: 10px;
+    outline: none;
+}
+
+
+.form-group textarea{
+    height: 40px;
+    width: 95%;
+    border-radius: 5px;
+    border:1px solid gray;
+    padding-left: 10px;
+    outline: none;
+
+}
+
+
+.submit {
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+.submit .btn-cal{
+
+    background-color:gray;
+    height: 30px;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
+
+}
+.submit .btn-sub{
+
+    background-color: #3C69C4;
+    height: 30px;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
+
+}
+@media (min-width: 1200px) and  (max-width: 1300px)  {
+    .main-nav{
+        font-size: 12px;
+    }
+    img{
+        width: 30px;
+        height:30px;
+        border-radius: 50%;
+        border: 1px solid gray;
+    }
+}
+
+@media (min-width: 768px) and  (max-width: 1000px)  {
+    .main-nav{
+        font-size: 12px;
+    }
+    img{
+        width: 25px;
+        height:25px;
+        border-radius: 50%;
+        border: 1px solid gray;
+    }
+
+    li span {
+        display: none;
+    }
+    .form-group{
+        position: relative;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        height: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+}
+
+@media (max-width: 768px)  {
+  .title{
+    display: none;
+  }
+  img{
+    width: 15px;
+    height:15px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+li span {
+    display: none;
+}
+
+.form-group{
+    position: relative;
+    display: block;
+    height: 65px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.form-group label{
+    line-height: 25px;
+
+}
+.submit {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.submit .btn-cal{
+
+    background-color:gray;
+    height: 30px;
+    width: 45%;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
+
+}
+.submit .btn-sub{
+
+    background-color: #3C69C4;
+    height: 30px;
+    width: 45%;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
+
+}
+}
+
+@media (max-width: 480px)  {
+    .adminbar{
+        display: grid;
+        grid-template-columns: 15% 80%;
+        font-size: 12px;
+        gap: 10px;
+    }
+    .header-title{
+        font-size: 2px;
+    }
+    li span {
+        display: none;
+    }
+}

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+use function Laravel\Prompts\password;
 
 class LoginController extends Controller
 {
@@ -54,13 +55,13 @@ class LoginController extends Controller
         // dd($input);
         $userdata =array('email'=> $input['email'],
         'password'=> $input['password']); // dd(auth('admin'), auth('admin')->attempt($userdata));
-
+            // dd(bcrypt($input['password']));
         if($input['usertype'] == "admin"){
             if(auth('admin')->attempt($userdata)){
                 $user= auth('admin')->user();
                 // $customer = auth('customer')->user();
                 // dd($user);
-                if($user->status== 'ACTIVE'){
+                if($user->status== 'Active'){
                         // dd(auth('admin')->user());
                     return redirect()->route('adminDashboard');
                 }
@@ -85,10 +86,10 @@ class LoginController extends Controller
             if(auth('customer')->attempt($userdata)){
                 $customer= auth('customer')->user();
                 // dd($customer);
-                if($customer->status== 'ACTIVE'){
+                if($customer->status== 'Active'){
                     // dd(auth('admin')->user());
                     if(session()->get('cart') == null){
-                        return redirect()->route('Customerhome');
+                        return redirect()->route('homepage');
                     }else{
                         return redirect()->route('addtocartinfo');
                     }
@@ -113,14 +114,16 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(Request $request)
-    {
+    public function Customerlogout(){
         Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
+        Session::flush();
+        return redirect()->route('CustomerLogin');
     }
+    public function Adminlogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('AdminLogin');
+    }
+
+
 }

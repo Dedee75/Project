@@ -15,10 +15,10 @@ class AdminRepository
        $staff = new Staff();
        $staff->person_id = $peopleid[0]->id;
     //    $staff->role_id = (int)$roleid;
-        $staff->role_id = 1;
+        $staff->role_id = $roleid;
        $staff->uuid = $uuid;
        $staff->status = "Active";
        $staff->save();
-       return redirect()->route('adminDashboard');
+       return redirect()->route('adminLogin');
     }
 }

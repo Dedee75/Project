@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="{{asset('CSS/admin/main.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/register.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/login.css')}}">
-    <link rel="stylesheet" href="{{asset('CSS/layout_admin.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/customer/layout_admin.css')}}">
+
     <title>@yield('admintitle')</title>
 </head>
 <body>
     <header>
         <div class="admin-header">
             <img src="" alt="" style="width:40px; height:40px;">
-            <h2>Tech 2 Go PC & ACCESSORIES</h2>
+            <h1>Tech 2 Go PC & ACCESSORIES</h1>
         </div>
     </header>
     <main class="adminmain">

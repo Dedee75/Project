@@ -16,22 +16,22 @@ class CustomerCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth('customer')->check()){
+        if(auth('customer')->check())
+        {
 
-            if(auth('customer')->check())
+            if (auth('customer')->check())
             {
-                // if(auth('admin')->user()->role->name == 'Admin'){
-                    return $next($request);
-
-                // }
+                //return redirect()-> route('admin.dashboard');
+                return $next($request);
             }
-            else{
-                return redirect('/customer/login')->with('error','You don\'t have Customer Access!');
+            else
+            {
+               // return redirect('home')->with('error', 'You don\'tave admin access'); ->with so session send
 
-
+                return redirect('/')->with('error','You don\'t have Customer Access!');
             }
         }
-        return redirect('/customer/login')->with('error','You don\'t have Customer Access!');
 
+        return redirect('/')->with('error','You don\'t have Customer Access!');
     }
 }
