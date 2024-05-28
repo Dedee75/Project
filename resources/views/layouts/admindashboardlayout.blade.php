@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/a44b41dfdc.js" crossorigin="anonymous"></script>
     <link href={{asset('CSS/admin/reset.css')}} rel="stylesheet" type="text/css" >
     <link href={{asset('CSS/admin/style.css')}} rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" href="{{asset('CSS/admin/subcategory.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <title>@yield('customertitle')</title> -->
     <title></title>
@@ -31,9 +32,9 @@
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/customerlist')}}"> <span> Customer </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/stafflist')}}"> <span> Staff </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/itemregister')}}"> <span> Item </span></a></li>
-                        <li>  <i class="fas fa-home"></i><a href=""> <span> Sub Category </span></a></li>
+                        <li>  <i class="fas fa-home"></i><a href="{{url('admin/subcategorylist')}}"><span> Sub Category</span></a></li>
                         <li>  <i class="fas fa-home"></i><a href=""> <span> Brands </span></a></li>
-                        <li>  <i class="fas fa-home"></i><a href=""> <span> Supplier </span></a></li>
+                        <li>  <i class="fas fa-home"></i><a href="{{url('admin/supplier/list')}}"><span> Supplier </span></a></li>
                     </ul>
 
 

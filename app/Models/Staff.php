@@ -29,4 +29,9 @@ class Staff extends Model
         return $this->belongsTo(Role::class);
     }
 
+    public function subcategory():BelongsTo
+    {
+        return $this->belongsTo(Subcategory::class);
+    }
+
 }

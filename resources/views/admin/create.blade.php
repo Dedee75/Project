@@ -7,6 +7,7 @@ $updatestatus = true;
 }
 
 @endphp
+
 @section('adminbody')
     <div class="admin-register-form">
         <form action="{{$updatestatus == true ?  route('adminRegisterUpdateProcess') : route('admin-register-process')}}" method="POST" enctype="multipart/form-data" class="admin-Register">

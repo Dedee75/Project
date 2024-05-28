@@ -9,6 +9,7 @@ use App\Models\Person;
 use App\Repository\StaffRepository;
 use App\Models\Customer;
 use App\Models\Staff;
+use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Factories\Relationship;
 
 use function Laravel\Prompts\select;
@@ -54,21 +55,22 @@ class StaffController extends Controller
     }
 
     public function updateprocess(Request $request){
-        dd($request->all());
-        // $uuid = Str::uuid()->toString();
-        // $image = $uuid.'.'.$request->image->extension();
-        // $request->image->move(public_path('img/staff/'),$image);
-        // $people =
-        // $people->name = $request->name;
-        // $people->email = $request->email;
-        // $people->address = $request->address;
-        // $people->age = $request->age;
-        // $people->phonenumber = $request->phone;
-        // $people->password = bcrypt($request->password);
-        // $people->status = "Active";
-        // $people->image = $image;
-        // $people->uuid = $uuid;
-        // $people->save();
+        // dd($request->all());
+        $uuid = Str::uuid()->toString();
+        $image = $uuid.'.'.$request->image->extension();
+        $request->image->move(public_path('img/staff/'),$image);
+        $people = Person::find($request->id);
+        // dd($people);
+        $people->name = $request->name;
+        $people->email = $request->email;
+        $people->address = $request->address;
+        $people->age = $request->age;
+        $people->phone = $request->phone;
+        $people->password = bcrypt($request->password);
+        $people->status = "Active";
+        $people->image = $image;
+        $people->save();
+        return redirect()->route('staffList');
 
     }
     public function register(){
@@ -128,9 +130,10 @@ class StaffController extends Controller
         return redirect()->route('staffList');
     }
 
-    public function itemregister(){
-        return view('Admin.itemregister');
-    }
+    // public function itemregister(){
+    //     return view('Admin.itemregister');
+    // }
+
 
 }
 
