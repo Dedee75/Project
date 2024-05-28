@@ -8,8 +8,35 @@
         <p>Subcategory List </p>
     </div>
 
-    <div>
-        <a href="{{url('/admin/subcategory/register')}}">+</a>
+    <div class="subcategory">
+        <div class="gotoregister">
+            <a href="{{url('/admin/subcategory/register')}}"><Button>+ NEW</Button></a>
+        </div>
+
+        <div class="categoryinput">
+            <input type="text" placeholder="Search In Here!">
+        </div>
+
+        <div class="dropdown">
+            <button class="btn" style="border-left:1px solid #0d8bf2">
+                <p>Select Subcategory</p>
+              <i class="fa fa-caret-down"></i>
+
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        <div class="gotoregister">
+            <button>Search</button>
+        </div>
+
+
+
+
     </div>
 </div>
 
@@ -19,7 +46,7 @@
     </div>
     <div>
 
-<table>
+<table class="subcategorytable">
     <tr>
         <th>#ID</th>
         <th>Name</th>
@@ -42,6 +69,7 @@
         <td>{{$subcategory->category->action}}
 
             <a href="{{url('/admin/subcategory/edit/'.$subcategory->id)}}">Edit</a>
+            l
             <a href="{{url('/admin/subcategory/delete/'.$subcategory->id)}}">Delete</a>
         </td>
 

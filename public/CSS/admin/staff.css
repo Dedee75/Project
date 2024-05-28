@@ -1,0 +1,12 @@
+.stafftable{
+    width: 95%;
+    padding: 20px;
+    margin: 30px 30px 30px 30px;
+}
+
+.stafftable tr{
+    display: grid;
+    grid-template-columns:repeat(10 , 1fr);
+    background-color: lightgray;
+    padding: 10px;
+}

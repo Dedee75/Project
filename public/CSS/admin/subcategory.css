@@ -1,0 +1,78 @@
+.subcategorytable{
+    width: 95%;
+    padding: 20px;
+    margin: 30px 30px 30px 30px;
+}
+
+.subcategorytable tr{
+    display: grid;
+    grid-template-columns:repeat(7 , 1fr);
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.subcategory{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gotoregister button
+{
+    width: 175px;
+    height: 50px;
+    background-color: #3C69C4;
+    color: white;
+    font-size: 20px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+.categoryinput input
+{
+        width: 400px;
+        height: 40px;
+        border-radius: 10px;
+        border-color: #3C69C4;
+        margin-left: 120px;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    margin-left: 0px;
+    width: 45%;
+  }
+
+  .dropdown button{
+    width: 200px;
+    height: 50px;
+    background-color: #3C69C4;
+    color: white;
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+
+    text-decoration: none;
+    display: block;
+  }
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .btn:hover, .dropdown:hover .btn {
+    background-color: #0b7dda;
+  }
+

@@ -5,7 +5,7 @@
 <div>
     <div class="page-titl">
         <i class="fa-solid fa-headphones"></i>
-        <p>Item</p>
+        <p>Staff List</p>
     </div>
 </div>
 
@@ -16,7 +16,7 @@
 
     <div>
 
-        <table>
+        <table class="customertable">
             <tr>
                 <th>#ID</th>
                 <th>Name</th>
@@ -27,8 +27,7 @@
                 <th>Role</th>
                 <th>Image</th>
                 <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Action</th>
             </tr>
 
             @foreach ($stafflist as $staff )
@@ -43,8 +42,11 @@
                 <th>{{$staff->role->name}}</th>
                 <th><img width="80" height="80" src="{{asset('/img/staff/' .$staff->people->image)}}"/></th>
                 <th>{{$staff->people->status}}</th>
-                <th><a href="{{url('/admin/staff/edit/'.$staff->people->id)}}">Edit</a></th>
-                <th><a href="{{url('/admin/staff/delete/'.$staff->people->id)}}">Delete</a></th>
+                <th>
+                    <a href="{{url('/admin/staff/edit/'.$staff->people->id)}}">Edit</a>
+                    l
+                    <a href="{{url('/admin/staff/delete/'.$staff->people->id)}}">Delete</a>
+                </th>
                 <th><a href=""></a></th>
             </tr>
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\BrandController;
 use App\Models\Staff;
 use App\Models\Supplier;
 
@@ -68,7 +69,7 @@ Route::middleware(['admin'])->group(function(){
     //subcategory end
 
     //brand start
-
+        Route::get('/admin/brandlist',[BrandController::class,'brandlist'])->name('brandList');
     //brand end
 
     //supplier start

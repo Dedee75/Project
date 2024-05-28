@@ -15,7 +15,7 @@
     </div>
     <div>
 
-<table>
+<table class="stafftable">
     <tr>
         <th>#ID</th>
         <th>Name</th>
@@ -25,8 +25,8 @@
         <th>Phone Number</th>
         <th>Image</th>
         <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Action</th>
+
     </tr>
 
     @foreach ($customerlist as $customer )
@@ -40,8 +40,11 @@
         <th>{{$customer->people->phone}}</th>
         <th><img width="80" height="80" src="{{asset('/img/customer/' .$customer->people->image)}}"/></th>
         <th>{{$customer->people->status}}</th>
-        <th><a href="{{url('/admin/listedit/'.$customer->people->id)}}">Edit</a></th>
-        <th><a href="{{url('/admin/customer/delete/'.$customer->people->id)}}">Delete</a></th>
+        <th>
+            <a href="{{url('/admin/listedit/'.$customer->people->id)}}">Edit</a>
+            l
+            <a href="{{url('/admin/customer/delete/'.$customer->people->id)}}">Delete</a>
+        </th>
         <th><a href=""></a></th>
     </tr>
 
