@@ -3,7 +3,7 @@
 @section('admindashboardbody')
 @php
 $updatestatus = false ;
-if(isset($category)){
+if(isset($subcategory)){
 $updatestatus = true;
 }
 
@@ -49,7 +49,7 @@ $updatestatus = true;
                 </div>
 
                 <div class="subCButton">
-                    <button class=" btn3">{{$updatestatus == true ? 'Update': 'Register'}}Register</button>
+                    <button class=" btn3">{{$updatestatus == true ? 'Update': 'Register'}}</button>
                     <button class=" btn3">Cancel</button>
                 </div>
             </div>

@@ -3,50 +3,47 @@
 @section('admindashboardbody')
 
 <div>
-    <div class="page-titl">
-        <i class="fa-solid fa-headphones"></i>
-        <p>Subcategory List </p>
+    <div class="page-title">
+        <div class="allhead">
+            <i class="fa-solid fa-headphones"></i>
+            <p>Subcategory List </p>
+        </div>
     </div>
 
-    <div class="subcategory">
-        <div class="gotoregister">
-            <a href="{{url('/admin/subcategory/register')}}"><Button>+ NEW</Button></a>
-        </div>
 
-        <div class="categoryinput">
-            <input type="text" placeholder="Search In Here!">
-        </div>
-
-        <div class="dropdown">
-            <button class="btn" style="border-left:1px solid #0d8bf2">
-                <p>Select Subcategory</p>
-              <i class="fa fa-caret-down"></i>
-
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-        </div>
-
-        <div class="gotoregister">
-            <button>Search</button>
-        </div>
-
-
-
-
-    </div>
 </div>
 
 <div>
     <div>
+        <div class="subcategory">
+            <div class="gotoregister">
+                <a href="{{url('/admin/subcategory/register')}}"><Button>+ NEW</Button></a>
+            </div>
 
+            <div class="categoryinput">
+                <input type="text" placeholder="Search In Here!">
+            </div>
+            <div class="gotoregister">
+                <button>Search</button>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn" style="border-left:1px solid #0d8bf2">
+                    <p>Select Subcategory</p>
+                  <i class="fa fa-caret-down"></i>
+
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
 
-<table class="subcategorytable">
+<table class="alltable">
     <tr>
         <th>#ID</th>
         <th>Name</th>
@@ -72,8 +69,6 @@
             l
             <a href="{{url('/admin/subcategory/delete/'.$subcategory->id)}}">Delete</a>
         </td>
-
-        <td><a href=""></a></td>
     </tr>
 
     @endforeach

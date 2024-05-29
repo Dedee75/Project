@@ -1,20 +1,9 @@
-.subcategorytable{
-    width: 95%;
-    padding: 20px;
-    margin: 30px 30px 30px 30px;
-}
-
-.subcategorytable tr{
-    display: grid;
-    grid-template-columns:repeat(7 , 1fr);
-    background-color: lightgray;
-    padding: 10px;
-}
 
 .subcategory{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    height: 50px;
 }
 
 .gotoregister button
@@ -31,7 +20,7 @@
 
 .categoryinput input
 {
-        width: 400px;
+        width: 580px;
         height: 40px;
         border-radius: 10px;
         border-color: #3C69C4;
@@ -39,14 +28,13 @@
 }
 
 .dropdown {
-    position: absolute;
     display: inline-block;
     margin-left: 0px;
     width: 45%;
   }
 
   .dropdown button{
-    width: 200px;
+    width: 150px;
     height: 50px;
     background-color: #3C69C4;
     color: white;

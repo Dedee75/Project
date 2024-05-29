@@ -3,30 +3,34 @@
 @section('admindashboardbody')
 
 <div>
-    <div class="page-titl">
-        <i class="fa-solid fa-headphones"></i>
-        <p>Supplier List</p>
-
-        <a href="{{url('admin/supplier/register')}}">+</a>
-
-        <div>
-            <form action="{{route('supplierSearch')}}" method="POST">
-                @csrf
-                <input type="text" name="search" placeholder="Please Search Here!">
-
-                <button type="submit">Search</button>
-            </form>
+    <div class="page-title">
+        <div class="allhead">
+            <i class="fa-solid fa-headphones"></i>
+            <p>Supplier List</p>
         </div>
     </div>
 </div>
 
 <div>
     <div>
+        <div class="subcategory">
+            <div class="supplierRegister">
+                <button><a href="{{url('admin/supplier/register')}}">+ NEW</a></button>
+            </div>
 
+            <div class="supplier">
+                <form action="{{route('supplierSearch')}}" method="POST" >
+                    @csrf
+                    <input type="text" name="search" placeholder="Please Search Here!">
+
+                    <button type="submit" class="gotoregister">Search</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div>
 
-<table>
+<table class="alltable">
     <tr>
         <th>#ID</th>
         <th>Name</th>
@@ -46,17 +50,19 @@
     <tr>
         {{-- {{dd($customer->customer->image)}} --}}
         <td>{{$supplier->id}}</td>
-        <th>{{$supplier->name}}</th>
-        <th>{{$supplier->email}}</th>
-        <th>{{$supplier->companyname}}</th>
-        <th>{{$supplier->address}}</th>
-        <th>{{$supplier->phone}}</th>
-        <th>{{$supplier->registerdate}}</th>
-        <th><img width="80" height="80" src="{{asset('/img/supplier/' .$supplier->image)}}"/></th>
-        <th>{{$supplier->status}}</th>
-        <th><a href="{{url('/admin/supplier/edit/'.$supplier->id)}}">Edit</a></th>
-        <th><a href="{{url('/admin/supplier/delete/'.$supplier->id)}}">Delete</a></th>
-        <th><a href=""></a></th>
+        <td>{{$supplier->name}}</td>
+        <td>{{$supplier->email}}</td>
+        <td>{{$supplier->companyname}}</td>
+        <td>{{$supplier->address}}</td>
+        <td>{{$supplier->phone}}</td>
+        <td>{{$supplier->registerdate}}</td>
+        <td><img width="80" height="80" src="{{asset('/img/supplier/' .$supplier->image)}}"/></td>
+        <td>{{$supplier->status}}</td>
+        <td>
+            <a href="{{url('/admin/supplier/edit/'.$supplier->id)}}">Edit</a>
+        l
+        <a href="{{url('/admin/supplier/delete/'.$supplier->id)}}">Delete</a>
+        </td>
     </tr>
 
     @endforeach

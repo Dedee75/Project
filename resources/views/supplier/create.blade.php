@@ -10,17 +10,18 @@ $updatestatus = true;
 
 @endphp
 
-<div>
+<div class="supplierForm">
     <div class="page-titl">
-        <i class="fa-solid fa-headphones"></i>
-        <p>Supplier Registeration</p>
+        <div class="allhead">
+            <i class="fa-solid fa-headphones"></i>
+            <p>Supplier Registeration</p>
+        </div>
 
     </div>
 
-    <div>
-        <h4>Supplier Registeration Form</h4>
+    <div class="main-register-form">
 
-        <form action="{{$updatestatus == true ?  route('supplierRegisterUpdateProcess') : route('supplierRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="admin-Register">
+        <form action="{{$updatestatus == true ?  route('supplierRegisterUpdateProcess') : route('supplierRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="supplier-register">
             @csrf
             <h2>{{$updatestatus == true ? 'Supplier Register Update Form' : 'Supplier Register Form'}}</h2>
 
@@ -29,47 +30,43 @@ $updatestatus = true;
 
             @endif
             <input type="hidden" name="id" value="{{$updatestatus == true ? $supplier ->id : ''}}">
-            <div>
-                <div>
-                    <label for="name"> Name</label>
-                    <input type="text" name="name" value="{{$updatestatus == true ? $supplier ->name : ''}}" id="name" placeholder="Enter  Name">
+            <div >
+                <div class="supplier-form-group">
+                    <label for="name" class="col-25"> Name</label>
+                    <input type="text" class="col-75" name="name" value="{{$updatestatus == true ? $supplier ->name : ''}}" id="name" placeholder="Enter  Name">
                 </div>
 
-                <div>
+                <div class="supplier-form-group">
                     <label for="companyname">Company Name</label>
                     <input type="text" name="companyname" value="{{$updatestatus == true ? $supplier ->companyname : ''}}" id="companyname" placeholder="Enter Company Name">
                 </div>
 
-                <div>
+                <div class="supplier-form-group">
                     <label for="email"> Email</label>
                     <input type="text" name="email" value="{{$updatestatus == true ? $supplier ->email : ''}}" id="email" placeholder="Enter Email">
                 </div>
 
-                <div>
+                <div class="supplier-form-group">
                     <label for="phone">Phone Number</label>
                     <input type="text" name="phone" value="{{$updatestatus == true ? $supplier ->phone : ''}}" id="phone" placeholder="Enter Phone Number ">
                 </div>
 
 
-                <div>
+                <div class="supplier-form-group">
                     <label for="address">Address</label>
-                    <textarea name="address" id="address" cols="30" rows="10">{{$updatestatus == true ? $supplier ->address : ''}}</textarea>
+                    <textarea name="address" id="address" cols="74" rows="8">{{$updatestatus == true ? $supplier ->address : ''}} </textarea>
                 </div>
 
-                <div>
+                <div class="supplier-form-group">
                     <div>
                         <label for="image">Image</label>
                         <input type="file" name="image" id="image">
-                    </div>
-
-                    <div>
-                        <button class="btn3">Upload</button>
                     </div>
                 </div>
 
                 <div class="subCButton">
                     <button class=" btn3">{{$updatestatus == true ? 'Update': 'Register'}}</button>
-                    <button class=" btn3">Cancel</button>
+                    <button class=" btn4">Cancel</button>
                 </div>
             </div>
         </form>

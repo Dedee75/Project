@@ -3,19 +3,36 @@
 @section('admindashboardbody')
 
 <div>
-    <div class="page-titl">
-        <i class="fa-solid fa-headphones"></i>
-        <p>Customer List </p>
+    <div class="page-title">
+        <div class="allhead">
+            <i class="fa-solid fa-headphones"></i>
+            <p>Customer List </p>
+        </div>
     </div>
 </div>
 
 <div>
     <div>
+        <div>
+            <div class="subcategory">
+                <div class="supplierRegister">
+                    <button>Hi Customer</button>
+                </div>
 
+                <div class="supplier">
+                    <form action="{{route('supplierSearch')}}" method="POST" >
+                        @csrf
+                        <input type="text" name="search" placeholder="Please Search Here!">
+
+                        <button type="submit" class="gotoregister">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
 
-<table class="stafftable">
+<table class="alltable">
     <tr>
         <th>#ID</th>
         <th>Name</th>
@@ -33,19 +50,19 @@
     <tr>
         {{-- {{dd($customer->customer->image)}} --}}
         <td>{{$customer->id}}</td>
-        <th>{{$customer->people->name}}</th>
-        <th>{{$customer->people->email}}</th>
-        <th>{{$customer->people->address}}</th>
-        <th>{{$customer->people->age}}</th>
-        <th>{{$customer->people->phone}}</th>
-        <th><img width="80" height="80" src="{{asset('/img/customer/' .$customer->people->image)}}"/></th>
-        <th>{{$customer->people->status}}</th>
-        <th>
+        <td>{{$customer->people->name}}</td>
+        <td>{{$customer->people->email}}</td>
+        <td>{{$customer->people->address}}</td>
+        <td>{{$customer->people->age}}</td>
+        <td>{{$customer->people->phone}}</td>
+        <td><img width="80" height="80" src="{{asset('/img/customer/' .$customer->people->image)}}"/></td>
+        <td>{{$customer->people->status}}</td>
+        <td>
             <a href="{{url('/admin/listedit/'.$customer->people->id)}}">Edit</a>
             l
             <a href="{{url('/admin/customer/delete/'.$customer->people->id)}}">Delete</a>
-        </th>
-        <th><a href=""></a></th>
+        </td>
+
     </tr>
 
     @endforeach

@@ -1,0 +1,52 @@
+.alltable{
+    border-collapse: collapse;
+    width: 95%;
+    margin: 30px;
+}
+
+.alltable tr td{
+    text-align: center;
+    padding: 8px;
+}
+
+.alltable tr th{
+    text-align: center;
+    padding: 8px;
+    background-color: #3d8df5;
+    height: 20px;
+    color: white;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+.btn4{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: gray;
+}
+
+.btn3{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background:#3d8df5;
+
+}
+
+.allhead
+{
+    display: flex;
+    margin: 30px;
+   font-size: 18px;
+}
+
+.allhead p{
+    margin-left: 10px;
+}
+
+

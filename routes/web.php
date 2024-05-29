@@ -70,6 +70,11 @@ Route::middleware(['admin'])->group(function(){
 
     //brand start
         Route::get('/admin/brandlist',[BrandController::class,'brandlist'])->name('brandList');
+        Route::get('/admin/brand/register',[BrandController::class,'brandregister'])->name('brandRegister');
+        Route::post('/admin/brand/register/process',[BrandController::class,'brandregisterprocess'])->name('brandRegisterProcess');
+        Route::get('/admin/brand/edit/{id}',[BrandController::class,'brandedit'])->name('brandEdit');
+        Route::patch('/admin/brand/register/update/proocess/',[BrandController::class,'updateprocess'])->name('brandRegisterUpdateProcess');
+        Route::get('/admin/brand/delete/{id}',[BrandController::class,'branddelete'])->name('brandDelete');
     //brand end
 
     //supplier start

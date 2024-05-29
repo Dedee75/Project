@@ -3,20 +3,37 @@
 @section('admindashboardbody')
 
 <div>
-    <div class="page-titl">
-        <i class="fa-solid fa-headphones"></i>
-        <p>Staff List</p>
+    <div class="page-title">
+        <div class="allhead">
+            <i class="fa-solid fa-headphones"></i>
+            <p>Staff List</p>
+        </div>
     </div>
 </div>
 
 <div>
     <div>
+        <div>
+            <div class="subcategory">
+                <div class="supplierRegister">
+                    <button><a href="{{url('/admin/register')}}">+ NEW</a></button>
+                </div>
 
+                <div class="supplier">
+                    <form action="{{route('supplierSearch')}}" method="POST" >
+                        @csrf
+                        <input type="text" name="search" placeholder="Please Search Here!">
+
+                        <button type="submit" class="gotoregister">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div>
 
-        <table class="customertable">
+        <table class="alltable">
             <tr>
                 <th>#ID</th>
                 <th>Name</th>
@@ -34,20 +51,19 @@
             <tr>
                 {{-- {{dd($staff->staff->image)}} --}}
                 <td>{{$staff->people->id}}</td>
-                <th>{{$staff->people->name}}</th>
-                <th>{{$staff->people->email}}</th>
-                <th>{{$staff->people->address}}</th>
-                <th>{{$staff->people->age}}</th>
-                <th>{{$staff->people->phone}}</th>
-                <th>{{$staff->role->name}}</th>
-                <th><img width="80" height="80" src="{{asset('/img/staff/' .$staff->people->image)}}"/></th>
-                <th>{{$staff->people->status}}</th>
-                <th>
+                <td>{{$staff->people->name}}</td>
+                <td>{{$staff->people->email}}</td>
+                <td>{{$staff->people->address}}</td>
+                <td>{{$staff->people->age}}</td>
+                <td>{{$staff->people->phone}}</td>
+                <td>{{$staff->role->name}}</td>
+                <td><img width="80" height="80" src="{{asset('/img/staff/' .$staff->people->image)}}"/></td>
+                <td>{{$staff->people->status}}</td>
+                <td>
                     <a href="{{url('/admin/staff/edit/'.$staff->people->id)}}">Edit</a>
                     l
                     <a href="{{url('/admin/staff/delete/'.$staff->people->id)}}">Delete</a>
-                </th>
-                <th><a href=""></a></th>
+                </td>
             </tr>
 
             @endforeach

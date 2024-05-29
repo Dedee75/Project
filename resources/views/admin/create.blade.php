@@ -9,7 +9,7 @@ $updatestatus = true;
 @endphp
 
 @section('adminbody')
-    <div class="admin-register-form">
+    <div class="supplier-register-form">
         <form action="{{$updatestatus == true ?  route('adminRegisterUpdateProcess') : route('admin-register-process')}}" method="POST" enctype="multipart/form-data" class="admin-Register">
             @csrf
             <h2>{{$updatestatus == true ? 'Admin Register Update Form' : 'Admin Register Form'}}</h2>
