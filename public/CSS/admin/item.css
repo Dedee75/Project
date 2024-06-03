@@ -1,0 +1,14 @@
+.categoryinput2 input
+{
+    height: 40px;
+    width: 200px;
+    margin: 20px;
+    border-color: #3C69C4;
+    border-radius: 5px;
+}
+
+.item{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

@@ -20,4 +20,12 @@ class Brand extends Model
     public function people():HasOne{
         return $this->hasone(Person::class, 'id');
     }
+    public function item():HasOne
+    {
+        return $this->hasone(Item::class, 'id');
+    }
+    public function brand():BelongsTo
+    {
+        return $this->belongsTo(Item::class,'brand_id');
+    }
 }

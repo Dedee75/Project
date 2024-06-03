@@ -2,11 +2,14 @@
     border-collapse: collapse;
     width: 95%;
     margin: 30px;
+
 }
 
 .alltable tr td{
     text-align: center;
+    line-height: 50%;
     padding: 8px;
+    vertical-align: middle;
 }
 
 .alltable tr th{
@@ -15,6 +18,8 @@
     background-color: #3d8df5;
     height: 20px;
     color: white;
+    vertical-align: middle;
+
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}

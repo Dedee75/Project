@@ -20,4 +20,10 @@ class Subcategory extends Model
     {
         return $this->hasone(Staff::class,'id');
     }
+
+    public function item()
+    {
+        return $this->hasMany(Item::class, 'id');
+    }
+
 }

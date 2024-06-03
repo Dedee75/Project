@@ -13,6 +13,9 @@ class Supplier extends Model
     {
         return $this->hasone(brand::class,'id');
     }
-    
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
 
 }

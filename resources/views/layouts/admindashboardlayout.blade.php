@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('CSS/admin/brand.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/list.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/register.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/admin/item.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <title>@yield('customertitle')</title> -->
     <title></title>
@@ -34,10 +35,9 @@
                 <div class="nav-container">
                    <ul>
                         <li>  <i class="fas fa-home"></i><a href=""> <span> Dashboard </span></a></li>
-                        <li>  <i class="fas fa-home"></i><a href=""> <span> Home </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/customerlist')}}"> <span> Customer </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/stafflist')}}"> <span> Staff </span></a></li>
-                        <li>  <i class="fas fa-home"></i><a href="{{url('admin/itemregister')}}"> <span> Item </span></a></li>
+                        <li>  <i class="fas fa-home"></i><a href="{{url('admin/item/list')}}"> <span> Item </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/subcategorylist')}}"><span> Sub Category</span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/brandlist')}}"> <span> Brands </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/supplier/list')}}"><span> Supplier </span></a></li>

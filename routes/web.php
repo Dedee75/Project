@@ -11,6 +11,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ItemController;
 use App\Models\Staff;
 use App\Models\Supplier;
 
@@ -40,16 +41,16 @@ Route::post('/customer/register/process',[CustomerController::class,'process'])-
 
 Route::middleware(['admin'])->group(function(){
     //admin Dashboard start
-    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
+        Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
     //admin Dasbhoard End
     //admin List start
-    Route::get('/admin/list',[AdminController::class,'list'])->name('adminList');
-    Route::get('/admin/stafflist',[StaffController::class,'stafflist'])->name('staffList');
-    Route::get('/admin/register',[StaffController::class,'register']);
-    Route::post('/admin/register/process',[StaffController::class,'process'])->name('admin-register-process');
-    Route::get('/admin/staff/edit/{id}',[StaffController::class,'staffedit'])->name('staffedit');
-    Route::patch('/admin/register/update/process',[StaffController::class,'updateprocess'])->name('adminRegisterUpdateProcess');
-    Route::get('/admin/staff/delete/{id}',[StaffController::class,'staffdelete'])->name('staffdelete');
+        Route::get('/admin/list',[AdminController::class,'list'])->name('adminList');
+        Route::get('/admin/stafflist',[StaffController::class,'stafflist'])->name('staffList');
+        Route::get('/admin/register',[StaffController::class,'register']);
+        Route::post('/admin/register/process',[StaffController::class,'process'])->name('admin-register-process');
+        Route::get('/admin/staff/edit/{id}',[StaffController::class,'staffedit'])->name('staffedit');
+        Route::patch('/admin/register/update/process',[StaffController::class,'updateprocess'])->name('adminRegisterUpdateProcess');
+        Route::get('/admin/staff/delete/{id}',[StaffController::class,'staffdelete'])->name('staffdelete');
 
     //admin List end
 
@@ -99,9 +100,14 @@ Route::middleware(['admin'])->group(function(){
     //Report End
 
 
-
-    // Route::get('/admin/item/register',[StaffController::class,'itemregister'])->name('itemRegister');
-
+    //Item Start
+        Route::get('/admin/item/list',[ItemController::class,'itemlist'])->name('itemList');
+        Route::get('/admin/item/register',[ItemController::class,'itemregister'])->name('itemRegister');
+        Route::post('/admin/item/register/process',[ItemController::class,'itemregisterprocess'])->name('itemRegisterProcess');
+        Route::get('/admin/item/edit/{id}',[ItemController::class,'itemedit'])->name('itemedit');
+        Route::patch('/admin/item//update/proocess/',[ItemController::class,'updateprocess'])->name('itemUpdateProcess');
+        Route::get('/admin/item/delete/{id}',[ItemController::class,'itemdelete'])->name('itemdelete');
+    //Item End
 
 });
 
