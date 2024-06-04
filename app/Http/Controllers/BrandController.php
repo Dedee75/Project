@@ -98,4 +98,10 @@ class BrandController extends Controller
         return redirect()->route('brandList');
     }
 
+    public function search(Request $request){
+        // dd($request);
+        $response = $this->brandRepository->searchRecords($request);
+        return $response;
+    }
+
 }

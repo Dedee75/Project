@@ -18,9 +18,25 @@
     border: none;
 }
 
+.categoryinput button{
+    width: 175px;
+    height: 50px;
+    background-color: #3C69C4;
+    color: white;
+    font-size: 20px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+.categoryinput{
+    display: flex;
+    align-items: center;
+}
+
 .categoryinput input
 {
-        width: 580px;
+        width: 583px;
         height: 40px;
         border-radius: 10px;
         border-color: #3C69C4;
@@ -29,7 +45,7 @@
 
 .dropdown {
     display: inline-block;
-    margin-left: 0px;
+    margin-left: 20px;
     width: 45%;
   }
 

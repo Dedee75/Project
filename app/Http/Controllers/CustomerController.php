@@ -52,4 +52,10 @@ class CustomerController extends Controller
         $response = $this->customerRepository->saveRecords($uuid);
         return $response;
     }
+
+    public function search(Request $request){
+        // dd($request);
+        $response = $this->customerRepository->searchRecords($request);
+        return $response;
+    }
 }

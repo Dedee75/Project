@@ -23,7 +23,13 @@
 
             <div class="item">
                 <div class="categoryinput2">
-                    <input type="text" placeholder="Search In Here!">
+                    <form action="{{route('itemSearch')}}" method="POST">
+                        @csrf
+                        <input type="text" name="search" placeholder="Search In Here!">
+                    </form>
+                    <div class="gotoregister">
+                        <button>Search</button>
+                    </div>
                 </div>
 
                 <div class="dropdown">
@@ -66,9 +72,7 @@
                 </div>
 
 
-                <div class="gotoregister">
-                    <button>Search</button>
-                </div>
+
             </div>
 
 

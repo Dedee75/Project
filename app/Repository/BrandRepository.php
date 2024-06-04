@@ -11,10 +11,32 @@ use App\Models\Brand_subcategory;
 
 class BrandRepository
 {
-    public function searchRecords($search)
+    public function searchRecords(Request $request)
     {
-  dd($search);
+        $name = 'brands.name';
+        $brandlist = DB::table('brands')
+        // ->join('brands', 'brands.id','=','brand_id')
+        // ->join('subcategories','subcategories.id','=', 'subcategory_id')
+        ->join('suppliers', 'suppliers.id','=','brands.supplier_id')
+        ->join('staff','staff.person_id','=','brands.staff_id')
+        ->join('people','people.id', '=','staff.person_id')
+        ->where('brands.status','=', 'Active')
+        ->where($name,'LIKE','%'.$request->search.'%')
+
+        ->select('brands.*','people.name as staffname','suppliers.name as suppliername')->get();
+
+        // $brandlist = DB::table('brands')
+        //         ->where('status','=','Active')
+        //         // ->orderBy('brand.id','DESC')
+        //         ->where($name,'LIKE','%'.$request->search.'%')
+        //         // ->orWhere($suppliername,'LIKE','%'.$request->search.'%')
+        //         // ->orWhere($staff,'LIKE','%'.$request->search.'%')
+        //         ->select('brands.*')
+        //         ->get();
+
+        return view('brand.brandlist' ,compact('brandlist'));
     }
+}
     // public function saveRecord ($subcategoryid,$uuid){
     //     $brandid = Brand::where('uuid',$uuid)->get();
     //     // dd($brandid[0]->id);
@@ -29,4 +51,4 @@ class BrandRepository
 
 
     // }
-}
+

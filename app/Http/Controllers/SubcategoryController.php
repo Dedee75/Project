@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subcategory;
+use App\Repository\SubcategoryRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -13,6 +14,12 @@ use Illuminate\Support\Str;
 
 class SubcategoryController extends Controller
 {
+    private $subcategoryRepository;
+    public function __construct(SubcategoryRepository $subcategoryrepository){
+        $this->subcategoryRepository = $subcategoryrepository;
+
+    }
+
     public function subcategorylist(){
         $subcategorylist = Subcategory::with(['category','staff'])->whereHas('category', function ($query) {
             $query->where('subcategories.status', 'Active');
@@ -73,5 +80,10 @@ class SubcategoryController extends Controller
         return redirect()->route('subcategoryList');
     }
 
+    public function search(Request $request){
+        // dd($request);
+        $response = $this->subcategoryRepository->searchRecords($request);
+        return $response;
+    }
 
 }

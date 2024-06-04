@@ -22,4 +22,28 @@ class CustomerRepository
        $customer->save();
        return redirect()->route('homepage');
     }
+
+    public function searchRecords(Request $request)
+    {
+
+
+        $customerlist = Customer::with(['people'])
+        ->whereHas('people', function ($query) use ($request) {
+            $search = '%' . $request->search . '%';
+            $query->where('status', 'Active')
+                  ->where(function ($subQuery) use ($search) {
+                      $subQuery->where('name', 'LIKE', $search)
+                               ->orWhere('email', 'LIKE', $search)
+                               ->orWhere('address', 'LIKE', $search)
+                               ->orWhere('phone', 'LIKE', $search);
+                  });
+        })
+        ->orderBy('id', 'DESC')
+        ->get();
+                // dd($stafflist);
+
+        return view('admin.customerlist' ,compact('customerlist'));
+
+
+    }
 }

@@ -91,7 +91,7 @@ class StaffController extends Controller
         $people->email = $request->email;
         $people->address = $request->address;
         $people->age = $request->age;
-        $people->phonenumber = $request->phone;
+        $people->phone = $request->phone;
         $people->password = bcrypt($request->password);
         $people->status = "Active";
         $people->image = $image;
@@ -134,6 +134,11 @@ class StaffController extends Controller
     //     return view('Admin.itemregister');
     // }
 
+    public function search(Request $request){
+        // dd($request);
+        $response = $this->staffRepository->searchRecords($request);
+        return $response;
+    }
 
 }
 

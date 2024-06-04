@@ -21,11 +21,16 @@
             </div>
 
             <div class="categoryinput">
-                <input type="text" placeholder="Search In Here!">
+                <form action="{{route('subcategorySearch')}}" method="POST">
+                    @csrf
+                <input type="text" name="search" placeholder="Search In Here!">
+
+                </form>
+                <button type="submit" class="gotoregister">Search</button>
             </div>
-            <div class="gotoregister">
+            {{-- <div class="gotoregister">
                 <button>Search</button>
-            </div>
+            </div> --}}
 
             <div class="dropdown">
                 <button class="btn" style="border-left:1px solid #0d8bf2">

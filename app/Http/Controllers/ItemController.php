@@ -111,4 +111,10 @@ class ItemController extends Controller
         $item->save();
         return redirect()->route('itemList');
     }
+
+    public function search(Request $request){
+        // dd($request);
+        $response = $this->itemRepository->searchRecords($request);
+        return $response;
+    }
 }

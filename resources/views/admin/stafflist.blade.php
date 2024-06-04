@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="supplier">
-                    <form action="{{route('supplierSearch')}}" method="POST" >
+                    <form action="{{route('staffSearch')}}" method="POST" >
                         @csrf
                         <input type="text" name="search" placeholder="Please Search Here!">
 

@@ -43,4 +43,29 @@ class ItemRepository
         }
         return redirect()->route('itemList');
     }
+
+    public function searchRecords(Request $request){
+
+
+        $supplier = DB::table('suppliers')->select('id', 'name')->where('status','=','Active')->get();
+        $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
+        $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
+
+        $name = 'items.name';
+        $supplier = 'suppliers.name';
+        $subcategory = 'subcategories.name';
+        $brand = 'brands.name';
+
+        $itemlist = DB::table('items')
+                ->where('status','=','Active')
+                ->orderBy('items.id','DESC')
+                ->where($name,'LIKE','%'.$request->search.'%')
+                ->where($supplier,'LIKE','%'.$request->search.'%')
+                ->orWhere($subcategory,'LIKE','%'.$request->search.'%')
+                ->orWhere($brand,'LIKE','%'.$request->search.'%')
+                ->select('items.*')
+                ->get();
+
+        return view('item.itemlist' ,compact('itemlist'));
+    }
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ItemController;
 use App\Models\Staff;
+use App\Models\Subcategory;
 use App\Models\Supplier;
 
 // Route::get('/', function () {
@@ -30,6 +31,7 @@ Route::get('/customer/login',[CustomerController::class,'login'])->name('custome
 Route::post('/customer/login/process',[LoginController::class,'login'])->name('customerLoginProcess');
 Route::get('/customer/register',[CustomerController::class,'register']);
 Route::post('/customer/register/process',[CustomerController::class,'process'])->name('customer-register-process');
+
 // Route::get('/admin/login',[CustomerController::class,'login'])->name('customerLogin');
 //Customer End
 //admin Start
@@ -51,12 +53,15 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/admin/staff/edit/{id}',[StaffController::class,'staffedit'])->name('staffedit');
         Route::patch('/admin/register/update/process',[StaffController::class,'updateprocess'])->name('adminRegisterUpdateProcess');
         Route::get('/admin/staff/delete/{id}',[StaffController::class,'staffdelete'])->name('staffdelete');
+        Route::post('/admin/staff/search',[StaffController::class,'search'])->name('staffSearch');
+
 
     //admin List end
 
     //customer list start
         Route::get('/admin/customerlist',[StaffController::class,'customerlist'])->name('customerList');
         Route::get('/admin/customer/delete/{id}',[StaffController::class,'customerdelete'])->name('customerdelete');
+        Route::post('/admin/customer/search',[CustomerController::class,'search'])->name('customerSearch');
     //customer list end
 
     //subcategory start
@@ -66,7 +71,7 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/admin/subcategory/edit/{id}',[SubcategoryController::class,'subcategoryedit'])->name('subcategoryedit');
         Route::patch('/admin/subcategory/register/update/process',[SubcategoryController::class,'updateprocess'])->name('subcategoryRegisterUpdateProcess');
         Route::get('/admin/subcategory/delete/{id}',[SubcategoryController::class,'subcategorydelete'])->name('subcategorydelete');
-
+        Route::post('/admin/subcategory/search',[SubcategoryController::class,'search'])->name('subcategorySearch');
     //subcategory end
 
     //brand start
@@ -76,6 +81,7 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/admin/brand/edit/{id}',[BrandController::class,'brandedit'])->name('brandEdit');
         Route::patch('/admin/brand/register/update/proocess/',[BrandController::class,'updateprocess'])->name('brandRegisterUpdateProcess');
         Route::get('/admin/brand/delete/{id}',[BrandController::class,'branddelete'])->name('brandDelete');
+        Route::post('/admin/brand/search',[BrandController::class,'search'])->name('brandSearch');
     //brand end
 
     //supplier start
@@ -107,6 +113,7 @@ Route::middleware(['admin'])->group(function(){
         Route::get('/admin/item/edit/{id}',[ItemController::class,'itemedit'])->name('itemedit');
         Route::patch('/admin/item//update/proocess/',[ItemController::class,'updateprocess'])->name('itemUpdateProcess');
         Route::get('/admin/item/delete/{id}',[ItemController::class,'itemdelete'])->name('itemdelete');
+        Route::post('/admin/item/search',[ItemController::class,'search'])->name('itemSearch');
     //Item End
 
 });
