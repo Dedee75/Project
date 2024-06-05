@@ -46,7 +46,7 @@
     /* border: 1px solid red; */
     display: grid;
     grid-template-columns: 10% 90%;
-    position: relative;
+    /* position: relative; */
     height: 99.7vh;
     overflow-y: scroll;
 }
@@ -55,7 +55,7 @@
     display: none;
 }
 .main-header{
-    position: relative;
+    /* position: relative; */
     width: 100%;
     border: 1px solid gray;
     box-shadow: 10px 10px 19px -7px rgba(196,187,187,0.75);
@@ -85,7 +85,7 @@ img{
 .admin-navbar{
     display: grid;
     height: 80px;
-    position: relative;
+    /* position: relative; */
     background-color: #3D8DF5;
 }
 
@@ -164,7 +164,7 @@ li span {
 
 .admin-Register-Form{
     display: block;
-    position: relative;
+    /* position: relative; */
     width: 100%;
     background-color: #fff;
 }
@@ -174,7 +174,7 @@ li span {
     padding-bottom: 20px;
 }
 .form-group{
-    position: relative;
+    /* position: relative; */
     display: grid;
     grid-template-columns: 150px 1fr;
     height: 50px;
@@ -228,6 +228,7 @@ li span {
     color:#fff;
 
 }
+
 @media (min-width: 1200px) and  (max-width: 1300px)  {
     .main-nav{
         font-size: 12px;

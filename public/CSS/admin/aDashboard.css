@@ -1,0 +1,96 @@
+.dashboardTitle{
+    display: flex;
+    width: 150px;
+    padding: 30px;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+
+.mainDashboard{
+    width: 95%;
+    height: 200vh;
+    margin: 0 auto;
+}
+
+.first-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 30px;
+
+}
+
+.first-row-left{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+}
+
+.dsbOne{
+    display: flex;
+    gap: 10px;
+    margin-top:10px ;
+}
+
+.first-row-right{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.data-box{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.second-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.second-row-data-box{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.price{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.data-box h4{
+    text-align: center;
+}
+
+.second-row-data-box h4
+{
+    text-align: center;
+}
+.second-row-data-box div
+{
+    padding: 30px;
+}
+
+.third-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px
+}
+
+.third-row-data-box{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+}
+

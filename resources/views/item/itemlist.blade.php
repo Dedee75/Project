@@ -9,9 +9,6 @@
             <p>Item List </p>
         </div>
     </div>
-
-
-
 </div>
 
 <div>
@@ -23,13 +20,14 @@
 
             <div class="item">
                 <div class="categoryinput2">
-                    <form action="{{route('itemSearch')}}" method="POST">
+                    <form action="{{route('itemSearch')}}" method="POST" class="itemform">
                         @csrf
                         <input type="text" name="search" placeholder="Search In Here!">
+                        <div class="gotoregister">
+                            <button>Search</button>
+                        </div>
                     </form>
-                    <div class="gotoregister">
-                        <button>Search</button>
-                    </div>
+
                 </div>
 
                 <div class="dropdown">
@@ -115,11 +113,10 @@
         </tr>
 
         @foreach ($itemlist as $item )
+
         <tr>
-            {{-- {{dd($item->supplier->name)}} --}}
             <td>{{$item->id}}</td>
             <td>{{$item->name}}</td>
-            {{-- <td>{{$item->supplier->name}}</td> --}}
             <td>
                 @if($item->supplier)
                     {{ $item->supplier->name }}
@@ -129,7 +126,6 @@
             </td>
             <td>{{$item->saleprice}}</td>
             <td>{{$item->purchaseprice}}</td>
-            {{-- <td>{{$item->subcategory->name}}</td> --}}
             <td>
                 @if($item->subcategory)
                     {{ $item->subcategory->name }}

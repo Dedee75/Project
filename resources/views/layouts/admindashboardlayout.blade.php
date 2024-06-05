@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="{{asset('CSS/admin/list.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/register.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/item.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/admin/aDashboard.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <title>@yield('customertitle')</title> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title></title>
 </head>
 <body>
@@ -34,7 +37,7 @@
                 </div>
                 <div class="nav-container">
                    <ul>
-                        <li>  <i class="fas fa-home"></i><a href=""> <span> Dashboard </span></a></li>
+                        <li>  <i class="fas fa-home"></i><a href="{{url('admin/dashboard')}}"> <span> Dashboard </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/customerlist')}}"> <span> Customer </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/stafflist')}}"> <span> Staff </span></a></li>
                         <li>  <i class="fas fa-home"></i><a href="{{url('admin/item/list')}}"> <span> Item </span></a></li>
@@ -62,9 +65,7 @@
                     </div>
                 </header>
 
-
-
-                <div>
+                <div class="admin-body">
                     @yield('admindashboardbody')
                 </div>
             </div>

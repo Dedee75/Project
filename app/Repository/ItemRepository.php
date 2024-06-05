@@ -46,26 +46,30 @@ class ItemRepository
 
     public function searchRecords(Request $request){
 
+        $searchData = [];
 
-        $supplier = DB::table('suppliers')->select('id', 'name')->where('status','=','Active')->get();
-        $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
-        $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
+        if($request->search !=' ' && isset($request->search)){
+            $search_name=['name','LIKE','%'.$request->search.'%'];
+            array_push($searchData,$search_name);
+        }
 
-        $name = 'items.name';
-        $supplier = 'suppliers.name';
-        $subcategory = 'subcategories.name';
-        $brand = 'brands.name';
+        if($request->search !=' ' && isset($request->search)){
+            $search_supplier=['name','LIKE','%'.$request->search.'%'];
+            array_push($searchData,$search_supplier);
+        }
 
-        $itemlist = DB::table('items')
-                ->where('status','=','Active')
-                ->orderBy('items.id','DESC')
-                ->where($name,'LIKE','%'.$request->search.'%')
-                ->where($supplier,'LIKE','%'.$request->search.'%')
-                ->orWhere($subcategory,'LIKE','%'.$request->search.'%')
-                ->orWhere($brand,'LIKE','%'.$request->search.'%')
-                ->select('items.*')
-                ->get();
+        if($request->search !=' ' && isset($request->search)){
+            $search_subcategory=['name','LIKE','%'.$request->search.'%'];
+            array_push($searchData,$search_subcategory);
+        }
 
-        return view('item.itemlist' ,compact('itemlist'));
+        if($request->search !=' ' && isset($request->search)){
+            $search_brand=['name','LIKE','%'.$request->search.'%'];
+            array_push($searchData,$search_brand);
+        }
+
+        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->get();
+
+        return view('item.itemlist',compact('itemlist'));
     }
 }

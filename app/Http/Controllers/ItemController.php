@@ -31,13 +31,6 @@ class ItemController extends Controller
         $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])->whereHas('item_photo',function($query){
             $query->where('items.status' ,'=' ,'Active');
         })->get();
-        // $itemlist = Item::with(['subcategory'])->whereHas('subcategory',function($query){
-        //     $query->where('status' ,'=' ,'Active');
-        // });
-        // $itemlist = Item::with(['brand'])->whereHas('brand',function($query){
-        //     $query->where('status' ,'=' ,'Active');
-        // });
-// dd($itemlist);
         return view('item.itemlist', compact('itemlist'));
 
     }

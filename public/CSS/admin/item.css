@@ -17,3 +17,9 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+.itemform
+{
+    display: flex;
+    align-items: center;
+}
