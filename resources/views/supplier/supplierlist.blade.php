@@ -19,7 +19,7 @@
             </div>
 
             <div class="supplier">
-                <form action="{{route('supplierSearch')}}" method="POST" >
+                <form action="{{route('supplierSearch')}}" method="POST" class="mainsupplier">
                     @csrf
                     <input type="text" name="search" placeholder="Please Search Here!">
 
@@ -56,7 +56,7 @@
         <td>{{$supplier->address}}</td>
         <td>{{$supplier->phone}}</td>
         <td>{{$supplier->registerdate}}</td>
-        <td><img width="80" height="80" src="{{asset('/img/supplier/' .$supplier->image)}}"/></td>
+        <td><img width="80" height="80" src="{{asset('/img/sup*plier/' .$supplier->image)}}"/></td>
         <td>{{$supplier->status}}</td>
         <td>
             <a href="{{url('/admin/supplier/edit/'.$supplier->id)}}">Edit</a>

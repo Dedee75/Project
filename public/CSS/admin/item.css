@@ -1,7 +1,7 @@
 .categoryinput2 input
 {
     height: 40px;
-    width: 250px;
+    width: 370px;
     margin: 20px;
     border-color: #3C69C4;
     border-radius: 5px;
@@ -22,4 +22,14 @@
 {
     display: flex;
     align-items: center;
+}
+
+.cancel-btn button{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: gray;
+
 }

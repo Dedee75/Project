@@ -15,7 +15,7 @@ class StaffRepository {
         $staff->uuid = $uuid;
         $staff->status = "Active";
         $staff->save();
-        return redirect()->route('adminDashboard');
+        return redirect()->route('staffList');
     }
 
     public function searchRecords(Request $request)

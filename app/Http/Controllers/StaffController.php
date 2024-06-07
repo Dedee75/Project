@@ -11,6 +11,8 @@ use App\Models\Customer;
 use App\Models\Staff;
 use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Factories\Relationship;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 use function Laravel\Prompts\select;
 
@@ -54,7 +56,18 @@ class StaffController extends Controller
         return redirect()->route('customerList');
     }
 
-    public function updateprocess(Request $request){
+    public function updateprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:50',
+            'phone' => 'required|string|min:6',
+            'address' => 'required|string|max:255',
+            'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
+
         // dd($request->all());
         $uuid = Str::uuid()->toString();
         $image = $uuid.'.'.$request->image->extension();
@@ -80,7 +93,19 @@ class StaffController extends Controller
     }
 
 
-    public function process(Request $request){
+    public function process(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:50',
+            'phone' => 'required|string|min:6',
+            'address' => 'required|string|max:255',
+            'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
+
+
         $roleid = $request->role;
         // dd($roleid);
         $uuid = Str::uuid()->toString();

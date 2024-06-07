@@ -12,29 +12,18 @@ use App\Models\Subcategory;
 class SubcategoryRepository{
     public function searchRecords(Request $request)
     {
+        $search =[ 'name','LIKE','%' . $request->search . '%'];
+        $search_category = ['category_id','LIKE','%' . $request->subcategory . '%'];
+        $search_data = [$search,$search_category];
         $name = 'subcategories.name';
-        $subcategorylist = Subcategory::with(['category'    ])
-        ->whereHas('category', function ($query) use ($request){
-            $search = '%' . $request->search . '%';
-            $query->where('status', 'Active')
-            ->where(function ($subQuery) use ($search) {
-                $subQuery->where('name', 'LIKE', $search)
-                         ->orWhere('description', 'LIKE', $search);
-
-            });
-
-        }) ->orderBy('id', 'DESC')
-        ->get();
-        // $subcategorylist = Subcategory::with('category')
-        //                 ->where([
-        //                     [],
-        //                     []])
-
-        // }) ->orderBy('id', 'DESC')
-        // ->get();
-
-        // dd($subcategorylist->toArray());
-
-        return view('subcategory.subcategorylist' ,compact('subcategorylist'));
+        $subcategorylist = Subcategory::with(['category'])
+                        ->whereHas('category', function ($query){
+                            $query->where('status', 'Active');
+                            })
+                        ->where($search_data)
+                        ->orderBy('id', 'DESC')
+                        ->get();
+        $category = DB::table('categories')->select('id', 'name')->where('status','=','Active')->get();
+        return view('subcategory.subcategorylist' ,compact('subcategorylist','category'));
     }
 }

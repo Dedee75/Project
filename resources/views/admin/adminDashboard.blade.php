@@ -11,13 +11,13 @@
         <div class="row-container">
             <div class="first-row">
                 <div class="first-row-left">
-                    <img src="asset{{ '' }}" alt="" width="300px" height="300px">
+                    <img src="{{asset('img/nwr.jpg')}}" alt="" width="300px" height="300px">
                     <div>
-                        <h3>Kaung Htet San</h3>
+                        <h3>Aye Mi San</h3>
                         <div>
                             <div class="dsbOne">
                                 <i class="fa-solid fa-headphones"></i>
-                                <p>kaunghtetsan@gmail.com</p>
+                                <p>ayemi234@gmail.com</p>
                             </div>
                             <div class="dsbOne">
                                 <i class="fa-solid fa-headphones"></i>

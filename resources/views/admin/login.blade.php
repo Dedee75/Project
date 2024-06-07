@@ -8,13 +8,13 @@
             <h1>Admin Login From Process</h1>
 
             <div class="admin-Login-Form">
-                
+
 
                 <div>
                     <img src="" alt="" style="width:300px; height:300px;">
                 </div>
 
-                <div>
+                <div >
                     <form method="POST" action="{{route('adminLoginProcess')}}" class="A-login">
                         @csrf
                         <input type="hidden" name="usertype" value="admin"/>

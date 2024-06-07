@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Subcategory;
 use App\Repository\SubcategoryRepository;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -21,11 +22,14 @@ class SubcategoryController extends Controller
     }
 
     public function subcategorylist(){
+        $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
+        $category = DB::table('categories')->select('id','name')->where('status','=','Active')->get();
+        // dd($role);
         $subcategorylist = Subcategory::with(['category','staff'])->whereHas('category', function ($query) {
             $query->where('subcategories.status', 'Active');
         })->get();
         // dd($subcategorylist[0]->staff);
-        return view('subcategory.subcategorylist', compact('subcategorylist'));
+        return view('subcategory.subcategorylist', compact('subcategorylist','category'));
     }
 
     public function subcategoryregister(){
@@ -34,7 +38,14 @@ class SubcategoryController extends Controller
         return view('subcategory.subcategoryregister',compact('category'));
     }
 
-    public function subcategoryregisterprocess(Request $request){
+    public function subcategoryregisterprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'desription' => 'required|string|max:255',
+            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+        ]);
 
         // dd($request);
         $uuid = Str::uuid()->toString();
@@ -59,7 +70,15 @@ class SubcategoryController extends Controller
         return view('subcategory.subcategoryregister',compact('subcategory', 'category'));
     }
 
-    public function updateprocess(Request $request){
+    public function updateprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+        ]);
+
         $uuid = Str::uuid()->toString();
         $subcategory = Subcategory::find($request->id);
         // dd($people);
@@ -81,7 +100,7 @@ class SubcategoryController extends Controller
     }
 
     public function search(Request $request){
-        // dd($request);
+        // dd($request->toArray());
         $response = $this->subcategoryRepository->searchRecords($request);
         return $response;
     }

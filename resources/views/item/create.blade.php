@@ -25,8 +25,11 @@ $updatestatus = true;
             <div class="main-register-form">
                 <div class="form-group ">
                     <label for="name">Item Name:</label>
-                    <input type="text" class="customerform"  id="name" name="name" value="{{$updatestatus == true ? $item -> name : ''}}"  placeholder="Please Enter Item Name">
+                    <input type="text" class="customerform"  @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror id="name" name="name" value="{{$updatestatus == true ? $item -> name : old('name')}}"  placeholder="Please Enter Item Name">
                 </div>
+                @error('name')
+                <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                @enderror
 
                 <div>
                     <div class="form-group">
@@ -41,22 +44,30 @@ $updatestatus = true;
 
                     <div class="form-group ">
                         <label for="qty">Qty:</label>
-                        <input type="number" class="customerform"  id="number" value="{{$updatestatus == true ? $item -> qty : ''}}" name="qty">
+                        <input type="number" class="customerform" @error ('qty') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror id="number" value="{{$updatestatus == true ? $item -> qty : old('qty')}}" name="qty">
                     </div>
+                    @error('qty')
+                    <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                    @enderror
 
                 </div>
 
                 <div>
                     <div class="form-group ">
                         <label for="sprice">Sale Price:</label>
-                        <input type="number" id="sprice" value="{{$updatestatus == true ? $item -> saleprice : ''}}" name="sprice">
-                    </div>
+                        <input type="number" id="sprice" @error ('sprice') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $item -> saleprice : old('sprice')}}" name="sprice">
+                    </div>@error('sprice')
+                    <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                    @enderror
 
                     <div class="form-group ">
                         <label for="pprice">Purchase Price</label>
-                        <input type="number" id="pprice" value="{{$updatestatus == true ? $item -> purchaseprice : ''}}" name="pprice" >
+                        <input type="number" id="pprice" @error ('pprice') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $item -> purchaseprice : old('pprice')}}" name="pprice" >
 
                     </div>
+                    @error('pprice')
+                    <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
@@ -83,16 +94,23 @@ $updatestatus = true;
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10">{{$updatestatus == true ? $item ->description:''}}</textarea>
+                    <textarea name="description" id="description" @error ('description') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror cols="30" rows="10">{{$updatestatus == true ? $item ->description:old('description')}}</textarea>
                 </div>
+                @error('description')
+                    <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                    @enderror
+
 
                 <div class="form-group">
                     <label for="image">image</label>
-                    <input type="file" id="image[]" name="image[]" multiple>
+                    <input type="file" @error ('image') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror id="image[]" name="image[]" multiple>
                 </div>
+                @error('image')
+                    <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                    @enderror
 
                 <div class="form-group">
-                <button type="cancel" class="btn4">Cancel</button>
+                <a href=""><button type="cancel" class="cancel-btn">Cancel</button></a>
                 <button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update': 'Register'}}</button>
                 </div>
             </div>

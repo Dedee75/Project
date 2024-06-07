@@ -9,7 +9,7 @@ use App\Models\Item;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Repository\ItemRepository;
-
+use Illuminate\Http\RedirectResponse;
 
 class ItemController extends Controller
 {
@@ -26,12 +26,12 @@ class ItemController extends Controller
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
         $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
 
-        compact('supplier','subcategory','brand');
+        // compact('supplier','subcategory','brand');
 
         $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])->whereHas('item_photo',function($query){
             $query->where('items.status' ,'=' ,'Active');
         })->get();
-        return view('item.itemlist', compact('itemlist'));
+        return view('item.itemlist', compact('itemlist','supplier','subcategory','brand'));
 
     }
     public function itemregister(){
@@ -41,7 +41,18 @@ class ItemController extends Controller
         return view('item.create',compact('supplier','subcategory','brand'));
     }
 
-    public function itemregisterprocess(Request $request){
+    public function itemregisterprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'qty' => 'required|string|max:50',
+            'sprice' => 'required|string|max:255',
+            'pprice' => 'required|string|max:255',
+            'desription' => 'required|string|max:255',
+            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
 
         // dd($request);
         // $subcategoryid= $request->supplier;
@@ -81,7 +92,18 @@ class ItemController extends Controller
         return view('item.create',compact('supplier','subcategory','brand','item'));
     }
 
-    public function updateprocess(Request $request){
+    public function updateprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'qty' => 'required|string|max:50',
+            'sprice' => 'required|string|max:255',
+            'pprice' => 'required|string|max:255',
+            'desription' => 'required|string|max:255',
+            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
 
         $item = Item::find($request->id);
         $item->name = $request->name;

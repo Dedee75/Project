@@ -40,8 +40,11 @@ $updatestatus = true;
 
                 <div>
                     <label for="name"> Brand Name:</label>
-                    <input type="text" name="name" value="{{$updatestatus == true ? $brand -> name : ''}}" id="brand" placeholder="Enter Brand Name">
+                    <input type="text" name="name" @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $brand -> name : old('name')}}" id="brand" placeholder="Enter Brand Name">
                 </div>
+                @error('name')
+                <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
+                @enderror
 
                 <div class="subCButton">
                     <button class=" btn3">Cancel</button>

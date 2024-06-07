@@ -10,3 +10,28 @@
     background-color: lightgray;
     padding: 10px;
 }
+
+.staff input
+{
+        width: 820px;
+        height: 40px;
+        border-radius: 10px;
+        border-color: #3C69C4;
+        margin-left: 120px;
+}
+
+.staff button{
+    width: 125px;
+    height: 40px;
+    background-color: #3C69C4;
+    color: white;
+    font-size: 20px;
+    margin: 30px 30px 30px 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+.staff{
+    display: flex;
+    align-items: center;
+}

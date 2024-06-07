@@ -29,10 +29,10 @@
         <div class="main-container">
             <div class="main-nav">
                 <div class="nav-col">
-                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fdomestic-cat&psig=AOvVaw316nA79ge0r8wGRSfCf1XT&ust=1716006793790000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPCn68ztk4YDFQAAAAAdAAAAABAS">
+                    <img src="{{asset('img/nwr.jpg')}}">
                 </div>
                 <div class="title">
-                    Steven Chan
+                    Aye Mi San
 
                 </div>
                 <div class="nav-container">
@@ -53,7 +53,7 @@
                 <header class="admin-navbar">
                     <div class="adminbar">
                         <div class="img-col">
-                             <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fdomestic-cat&psig=AOvVaw316nA79ge0r8wGRSfCf1XT&ust=1716006793790000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPCn68ztk4YDFQAAAAAdAAAAABAS">
+                             <img src="{{asset('img/shop-logo.png')}}" style="width: 50px; height:50px; margin-left:20px;">
                         </div>
                         <div class="header-title">
                             <h2>Tech 2 Go PC & Accessories</h2>

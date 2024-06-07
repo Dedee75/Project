@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use App\Repository\SupplierRepository;
+use Illuminate\Http\RedirectResponse;
 
 class SupplierController extends Controller
 {
@@ -31,7 +32,17 @@ class SupplierController extends Controller
         return view('supplier.create');
     }
 
-    public function supplierregisterprocess(Request $request){
+    public function supplierregisterprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'companyname'=>'required|string|max:255',
+            'email' => 'required|email|max:50',
+            'phone' => 'required|string|min:6',
+            'address' => 'required|string|max:255',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
 
         // dd($request);
         $uuid = Str::uuid()->toString();
@@ -59,7 +70,17 @@ class SupplierController extends Controller
         return view('supplier.create', compact('supplier'));
     }
 
-    public function updateprocess(Request $request){
+    public function updateprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'companyname'=>'required|string|max:255',
+            'email' => 'required|email|max:50',
+            'phone' => 'required|string|min:6',
+            'address' => 'required|string|max:255',
+            // 'password_confirmation' => 'required|string|min:8|confirmed',
+            'image' => 'required',
+        ]);
 
         $uuid = Str::uuid()->toString();
         $image = $uuid.'.'.$request->image->extension();

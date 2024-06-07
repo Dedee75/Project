@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="admin-header">
-            <img src="" alt="" style="width:40px; height:40px;">
+            <img src="{{asset('img/shop logo.png')}}" alt="" style="width:50px; height:50px; border-radius:50px;" >
             <h1>Tech 2 Go PC & ACCESSORIES</h1>
         </div>
     </header>

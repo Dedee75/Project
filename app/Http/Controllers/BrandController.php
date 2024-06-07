@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Repository\BrandRepository;
+use Illuminate\Http\RedirectResponse;
 
 class BrandController extends Controller
 {
@@ -50,7 +51,12 @@ class BrandController extends Controller
         return view('brand.create' , compact('supplier'));
     }
 
-    public function brandregisterprocess(Request $request){
+    public function brandregisterprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+
+        ]);
 
         // dd($request);
         // $subcategoryid= $request->supplier;
@@ -79,7 +85,12 @@ class BrandController extends Controller
         return view('brand.create',compact('supplier', 'brand'));
     }
 
-    public function updateprocess(Request $request){
+    public function updateprocess(Request $request):RedirectResponse{
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+
+        ]);
 
         // $uuid = Str::uuid()->toString();
         $brand = Brand::find($request->id);

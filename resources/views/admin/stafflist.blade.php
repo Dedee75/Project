@@ -19,7 +19,7 @@
                     <button><a href="{{url('/admin/register')}}">+ NEW</a></button>
                 </div>
 
-                <div class="supplier">
+                <div class="staff">
                     <form action="{{route('staffSearch')}}" method="POST" >
                         @csrf
                         <input type="text" name="search" placeholder="Please Search Here!">

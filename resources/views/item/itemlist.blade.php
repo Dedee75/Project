@@ -23,50 +23,51 @@
                     <form action="{{route('itemSearch')}}" method="POST" class="itemform">
                         @csrf
                         <input type="text" name="search" placeholder="Search In Here!">
+
+
+                        <div class="dropdown">
+
+                            {{-- <button class="dropdown-btn">
+                                <p>Select Supplier</p>
+                              <i class="fa fa-caret-down"></i>
+
+
+                            </button> --}}
+                            {{-- <div class="dropdown-content"> --}}
+                                <select name="supplier">
+                                    <option value="">Select Supplier</option>
+                                    @foreach($supplier as $supplier)
+                                    <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                    @endforeach
+                                </select>
+                            {{-- </div> --}}
+                        </div>
+
+                        <div class="dropdown">
+                                <select name="subcategory">
+                                    <option value="">Select Subcategory</option>
+                                    @foreach($subcategory as $subcategory)
+                                    <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                    @endforeach
+                                </select>
+
+                        </div>
+
+                        <div class="dropdown">
+
+                            <select name="brand">
+                                <option value="">Select Brand</option>
+                                @foreach($brand as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="gotoregister">
                             <button>Search</button>
                         </div>
                     </form>
 
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn" style="border-left:1px solid #0d8bf2">
-                        <p>Select Supplier</p>
-                      <i class="fa fa-caret-down"></i>
-
-                    </button>
-                    <div class="dropdown-content">
-                      <a href=""></a>
-                      {{-- <a href="#">Link 2</a>
-                      <a href="#">Link 3</a> --}}
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn" style="border-left:1px solid #0d8bf2">
-                        <p>Select Subcategory</p>
-                      <i class="fa fa-caret-down"></i>
-
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn" style="border-left:1px solid #0d8bf2">
-                        <p>Select Brand</p>
-                      <i class="fa fa-caret-down"></i>
-
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
-                    </div>
                 </div>
 
 

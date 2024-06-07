@@ -20,30 +20,27 @@
                 <a href="{{url('/admin/subcategory/register')}}"><Button>+ NEW</Button></a>
             </div>
 
-            <div class="categoryinput">
-                <form action="{{route('subcategorySearch')}}" method="POST">
+            <div>
+                <form action="{{route('subcategorySearch')}}" method="POST" class="categoryinput">
                     @csrf
                 <input type="text" name="search" placeholder="Search In Here!">
-
-                </form>
+                <div class="dropdown">
+                    <select name="subcategory">
+                        <option value="">Select Category</option>
+                        @foreach($category as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="gotoregister">Search</button>
+                </form>
+
             </div>
             {{-- <div class="gotoregister">
                 <button>Search</button>
             </div> --}}
 
-            <div class="dropdown">
-                <button class="btn" style="border-left:1px solid #0d8bf2">
-                    <p>Select Subcategory</p>
-                  <i class="fa fa-caret-down"></i>
 
-                </button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
-            </div>
         </div>
     </div>
     <div>

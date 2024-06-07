@@ -19,8 +19,8 @@
                     <button>Hi Customer</button>
                 </div>
 
-                <div class="supplier">
-                    <form action="{{route('customerSearch')}}" method="POST" >
+                <div class="staff">
+                    <form action="{{route('customerSearch')}}" method="POST" class="">
                         @csrf
                         <input type="text" name="search" placeholder="Please Search Here!">
 

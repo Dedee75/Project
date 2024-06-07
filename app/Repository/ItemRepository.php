@@ -45,7 +45,6 @@ class ItemRepository
     }
 
     public function searchRecords(Request $request){
-
         $searchData = [];
 
         if($request->search !=' ' && isset($request->search)){
@@ -53,23 +52,28 @@ class ItemRepository
             array_push($searchData,$search_name);
         }
 
-        if($request->search !=' ' && isset($request->search)){
-            $search_supplier=['name','LIKE','%'.$request->search.'%'];
+        if(isset($request->supplier)){
+            $search_supplier=['supplier_id','LIKE','%'.$request->supplier.'%'];
             array_push($searchData,$search_supplier);
         }
 
-        if($request->search !=' ' && isset($request->search)){
-            $search_subcategory=['name','LIKE','%'.$request->search.'%'];
+        if(isset($request->subcategory)){
+            $search_subcategory=['subcategory_id','LIKE','%'.$request->subcategory.'%'];
             array_push($searchData,$search_subcategory);
         }
 
-        if($request->search !=' ' && isset($request->search)){
-            $search_brand=['name','LIKE','%'.$request->search.'%'];
+        if(isset($request->brand)){
+            $search_brand=['brand_id','LIKE','%'.$request->brand.'%'];
             array_push($searchData,$search_brand);
         }
 
-        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->get();
+        $supplier = DB::table('suppliers')->select('id', 'name')->where('status','=','Active')->get();
+        $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
+        $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
 
-        return view('item.itemlist',compact('itemlist'));
+        dd($searchData);
+
+        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->get();
+        return view('item.itemlist',compact('itemlist','supplier','subcategory','brand'));
     }
 }
