@@ -16,9 +16,8 @@ $updatestatus = true;
     </div>
 
     <div>
-        <h4>Sub Category Registeration Form</h4>
 
-        <form action="{{$updatestatus == true ?  route('subcategoryRegisterUpdateProcess') : route('subcategoryRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="admin-Register">
+        <form action="{{$updatestatus == true ?  route('subcategoryRegisterUpdateProcess') : route('subcategoryRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="subcategory-Register">
             @csrf
             <h2>{{$updatestatus == true ? 'Sub Category Register Update Form' : 'Sub Category Register Form'}}</h2>
 
@@ -27,8 +26,8 @@ $updatestatus = true;
 
             @endif
             <input type="hidden" name="id" value="{{$updatestatus == true ? $subcategory ->id : ''}}">
-            <div>
-                <div>
+            <div class="subcategory-form">
+                <div class="sub-form">
                     <label for="name"> Sub Category Name:</label>
                     <input type="text" name="name" @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $subcategory -> name : old('name')}}" id="name" placeholder="Enter Sub Category Name">
                 </div>
@@ -36,7 +35,7 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="form-group">
+                <div class="form-group3">
                     <label for="category">Category</label>
                     <select name="category">
                         <option value="categoryid">Select Category Name....</option>
@@ -46,7 +45,7 @@ $updatestatus = true;
                     </select>
                 </div>
 
-                <div>
+                <div class="sub-form">
                     <label for="description"> Description:</label>
                     <input type="text" name="description" @error ('description') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $subcategory -> description : old('description')}}" id="description" placeholder="Enter Description">
                 </div>

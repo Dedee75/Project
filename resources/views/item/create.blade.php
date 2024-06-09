@@ -31,8 +31,8 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div>
-                    <div class="form-group">
+                <div class="age-role-form">
+                    <div class="form-group3">
                         <label for="supplier">Supplier:</label>
                         <select name="supplier">
                             <option>Select Supplier ...</option>
@@ -42,7 +42,7 @@ $updatestatus = true;
                         </select>
                     </div>
 
-                    <div class="form-group ">
+                    <div class="form-group2">
                         <label for="qty">Qty:</label>
                         <input type="number" class="customerform" @error ('qty') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror id="number" value="{{$updatestatus == true ? $item -> qty : old('qty')}}" name="qty">
                     </div>
@@ -52,15 +52,15 @@ $updatestatus = true;
 
                 </div>
 
-                <div>
-                    <div class="form-group ">
+                <div class="age-role-form">
+                    <div class="form-group2">
                         <label for="sprice">Sale Price:</label>
                         <input type="number" id="sprice" @error ('sprice') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $item -> saleprice : old('sprice')}}" name="sprice">
                     </div>@error('sprice')
                     <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                     @enderror
 
-                    <div class="form-group ">
+                    <div class="form-group2">
                         <label for="pprice">Purchase Price</label>
                         <input type="number" id="pprice" @error ('pprice') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $item -> purchaseprice : old('pprice')}}" name="pprice" >
 
@@ -70,8 +70,8 @@ $updatestatus = true;
                     @enderror
                 </div>
 
-                <div>
-                    <div class="form-group">
+                <div  class="age-role-form" >
+                    <div class="form-group3">
                         <label for="subcategory">Subcategory:</label>
                         <select name="subcategory">
                             <option>Select SubCategory...</option>
@@ -81,7 +81,7 @@ $updatestatus = true;
                         </select>
                     </div>
 
-                    <div class="form-group ">
+                    <div class="form-group3">
                         <label for="brand">Brand:</label>
                         <select name="brand">
                             <option>Select Brand...</option>
@@ -110,8 +110,8 @@ $updatestatus = true;
                     @enderror
 
                 <div class="form-group">
-                <a href=""><button type="cancel" class="cancel-btn">Cancel</button></a>
-                <button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update': 'Register'}}</button>
+                <a href=""><button type="cancel" class="btn btnAdmin">Cancel</button></a>
+                <a href=""><button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update': 'Register'}}</button></a>
                 </div>
             </div>
         </form>

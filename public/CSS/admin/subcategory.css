@@ -43,6 +43,27 @@
         margin-left: 120px;
 }
 
+.sub-form input{
+    margin-top: 30px;
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.subcategory-from{
+    margin-top: 20px;
+
+}
+
+.form-group3{
+    margin-top: 30px;
+
+}
+
+
+
+
+
 /* .dropdown {
     display: inline-block;
     margin-left: 20px;
