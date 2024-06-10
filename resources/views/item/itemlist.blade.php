@@ -13,34 +13,25 @@
 
 <div>
     <div>
-        <div class="subcategory">
+        <div class="item-main-form">
             <div class="gotoregister">
                 <a href="{{url('/admin/item/register')}}"><Button>+ NEW</Button></a>
             </div>
 
             <div class="item">
-                <div class="categoryinput2">
+                <div class="dropdown-input">
                     <form action="{{route('itemSearch')}}" method="POST" class="itemform">
                         @csrf
                         <input type="text" name="search" placeholder="Search In Here!">
 
 
                         <div class="dropdown">
-
-                            {{-- <button class="dropdown-btn">
-                                <p>Select Supplier</p>
-                              <i class="fa fa-caret-down"></i>
-
-
-                            </button> --}}
-                            {{-- <div class="dropdown-content"> --}}
                                 <select name="supplier">
                                     <option value="">Select Supplier</option>
                                     @foreach($supplier as $supplier)
                                     <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                                     @endforeach
                                 </select>
-                            {{-- </div> --}}
                         </div>
 
                         <div class="dropdown">
@@ -50,7 +41,6 @@
                                     <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                                     @endforeach
                                 </select>
-
                         </div>
 
                         <div class="dropdown">
@@ -65,13 +55,11 @@
 
                         <div class="gotoregister">
                             <button>Search</button>
+                            <a href="{{route('itemList')}}"><Button>Reset</Button></a>
                         </div>
                     </form>
 
                 </div>
-
-
-
             </div>
 
 

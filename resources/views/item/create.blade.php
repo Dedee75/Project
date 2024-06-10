@@ -1,5 +1,5 @@
 @extends('layouts.adminlayout')
-@section('admintitle','Admin Register')
+@section('admintitle','Item Register')
 @php
 
 
@@ -12,7 +12,7 @@ $updatestatus = true;
 
 @section('adminbody')
     <div class="admin-register-form">
-        <form action="{{$updatestatus == true ?  route('itemUpdateProcess') : route('itemRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="admin-Register">
+        <form action="{{$updatestatus == true ?  route('itemUpdateProcess') : route('itemRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="item-register">
             @csrf
             <h2>{{$updatestatus == true ? 'Item Register Update Form' : 'Item Register Form'}}</h2>
 
@@ -22,8 +22,8 @@ $updatestatus = true;
             @endif
             <input type="hidden" name="id" value="{{$updatestatus == true ? $item->id : ''}}">
 
-            <div class="main-register-form">
-                <div class="form-group ">
+            <div class="item-main-register-form">
+                <div class="item-form-group">
                     <label for="name">Item Name:</label>
                     <input type="text" class="customerform"  @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror id="name" name="name" value="{{$updatestatus == true ? $item -> name : old('name')}}"  placeholder="Please Enter Item Name">
                 </div>
@@ -31,8 +31,8 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="age-role-form">
-                    <div class="form-group3">
+                <div class="item-dropdown-form">
+                    <div class="item-form-group3">
                         <label for="supplier">Supplier:</label>
                         <select name="supplier">
                             <option>Select Supplier ...</option>
@@ -52,8 +52,8 @@ $updatestatus = true;
 
                 </div>
 
-                <div class="age-role-form">
-                    <div class="form-group2">
+                <div class="item-dropdown-form">
+                    <div class="item-form-group2">
                         <label for="sprice">Sale Price:</label>
                         <input type="number" id="sprice" @error ('sprice') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $item -> saleprice : old('sprice')}}" name="sprice">
                     </div>@error('sprice')
@@ -70,8 +70,8 @@ $updatestatus = true;
                     @enderror
                 </div>
 
-                <div  class="age-role-form" >
-                    <div class="form-group3">
+                <div  class="item-dropdown-form" >
+                    <div class="item-form-group4">
                         <label for="subcategory">Subcategory:</label>
                         <select name="subcategory">
                             <option>Select SubCategory...</option>
@@ -92,7 +92,7 @@ $updatestatus = true;
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="item-form-group">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" @error ('description') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror cols="30" rows="10">{{$updatestatus == true ? $item ->description:old('description')}}</textarea>
                 </div>
@@ -109,8 +109,8 @@ $updatestatus = true;
                     <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                     @enderror
 
-                <div class="form-group">
-                <a href=""><button type="cancel" class="btn btnAdmin">Cancel</button></a>
+                <div class="">
+                <a href="{{route('itemList')}}"class="cancel-btn"><p>Cancel</p></a>
                 <a href=""><button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update': 'Register'}}</button></a>
                 </div>
             </div>

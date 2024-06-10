@@ -26,7 +26,8 @@
                             <label for="password"><b>Password</b></label>
                             <input type="password" class="adminform" name="password" id="password" placeholder="Please Enter Password!">
                         </div>
-                        <button type="submit" class="btn btn2" name="login" > Login </button>
+                        <button type="submit" class="btnAdmin" name="login" > Login </button>
+
                     </form>
                 </div>
             </div>

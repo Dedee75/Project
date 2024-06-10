@@ -25,7 +25,7 @@ class SubcategoryController extends Controller
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
         $category = DB::table('categories')->select('id','name')->where('status','=','Active')->get();
         // dd($role);
-        $subcategorylist = Subcategory::with(['category','staff'])->whereHas('category', function ($query) {
+        $subcategorylist = Subcategory::with(['category','staff'])->orderBy('subcategories.id','DESC')->whereHas('category', function ($query) {
             $query->where('subcategories.status', 'Active');
         })->get();
         // dd($subcategorylist[0]->staff);

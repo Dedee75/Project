@@ -33,6 +33,7 @@
                     </select>
                 </div>
                 <button type="submit" class="gotoregister">Search</button>
+                <button>Reset</button>
                 </form>
 
             </div>

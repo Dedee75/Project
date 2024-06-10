@@ -129,7 +129,7 @@ class StaffController extends Controller
 
     public function customerList(){
         // $customerlist = customer::whereHas()where('status','Active')->get()->toArray();
-        $customerlist = customer::with(['people'])->whereHas('people', function ($query) {
+        $customerlist = customer::with(['people'])->orderBy('customers.id','DESC')->whereHas('people', function ($query) {
             $query->where('status', 'Active');
         })->get();
         // $customerlist = customer::with(['customer'])->where([['status','=','Active'],
@@ -141,7 +141,7 @@ class StaffController extends Controller
     }
 
     public function staffList(){
-        $stafflist = Staff::with(['people','role'])->whereHas('people', function ($query) {
+        $stafflist = Staff::with(['people','role'])->orderBy('staff.id','DESC')->whereHas('people', function ($query) {
             $query->where('status', 'Active');
         })->get();
         // dd($stafflist);

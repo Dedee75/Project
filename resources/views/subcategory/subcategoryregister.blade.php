@@ -15,9 +15,9 @@ $updatestatus = true;
 
     </div>
 
-    <div>
+    <div class="sub-register-main-form">
 
-        <form action="{{$updatestatus == true ?  route('subcategoryRegisterUpdateProcess') : route('subcategoryRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="subcategory-Register">
+        <form action="{{$updatestatus == true ?  route('subcategoryRegisterUpdateProcess') : route('subcategoryRegisterProcess')}}" method="POST" enctype="multipart/form-data" class="sub-register-form">
             @csrf
             <h2>{{$updatestatus == true ? 'Sub Category Register Update Form' : 'Sub Category Register Form'}}</h2>
 
@@ -35,7 +35,7 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="form-group3">
+                <div class="subcategory-dropdown">
                     <label for="category">Category</label>
                     <select name="category">
                         <option value="categoryid">Select Category Name....</option>
@@ -53,9 +53,10 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="subCButton">
+                <div class="subButton">
+                    <a href="{{{route('subcategoryList')}}}" class="cancel-btn"><p>Cancel</p> </a>
                     <button class=" btn3">{{$updatestatus == true ? 'Update': 'Register'}}</button>
-                    <button class=" btn3">Cancel</button>
+
                 </div>
             </div>
         </form>

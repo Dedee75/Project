@@ -92,11 +92,11 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="">
-                    <label for=""></label>
-                <button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update' : 'Register'}} </button>
+                <div class="register-button">
+                    <button type="register" class="btn btnAdmin">{{$updatestatus == true ? 'Update' : 'Register'}} </button>
+                    <a href="{{{route('staffList')}}}" class="cancel-btn"><p>Cancel</p> </a>
                 </div>
             </div>
-        </form>
+        </form> 
     </div>
 @endsection

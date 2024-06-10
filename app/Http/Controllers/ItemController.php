@@ -28,7 +28,7 @@ class ItemController extends Controller
 
         // compact('supplier','subcategory','brand');
 
-        $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])->whereHas('item_photo',function($query){
+        $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])->orderBy('items.id','DESC')->whereHas('item_photo',function($query){
             $query->where('items.status' ,'=' ,'Active');
         })->get();
         return view('item.itemlist', compact('itemlist','supplier','subcategory','brand'));

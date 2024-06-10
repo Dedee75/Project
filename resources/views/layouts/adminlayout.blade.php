@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{asset('CSS/admin/register.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/admin/login.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/customer/layout_admin.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/admin/item.css')}}">
+    <link rel="stylesheet" href="{{asset('CSS/admin/list.css')}}">
 
     <title>@yield('admintitle')</title>
 </head>

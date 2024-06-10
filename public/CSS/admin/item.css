@@ -1,43 +1,78 @@
-.categoryinput2 input
-{
-    height: 40px;
-    width: 370px;
-    margin: 20px;
-    border-color: #3C69C4;
-    border-radius: 5px;
-}
-
-.categoryinput2{
-    display: flex;
-    align-items: center;
-}
-
-.item{
+.item-main-form{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.itemform
-{
+.itemform{
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.cancel-btn button{
-    width: 150px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background: gray;
+.itemform input{
+    width: 250px;
+    height: 40px;
+    border-radius:10px ;
+    border-color: #3D8DF5;
+}
 
+.item-register{
+    width: 800px;
+}
+
+.item-dropdown-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .item-form-group input{
     margin-left: 30px;
-    width: 500px;
+    width: 640px;
     height: 30px;
     border-radius: 5px;
 }
+
+.item-form-group{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.item-form-group textarea{
+    margin-left: 30px;
+    width: 640px;
+    height: 30px;
+    border-radius: 5px;
+
+}
+
+.supplier-dropdown select{
+    margin-left: 300px;
+}
+
+.item-form-group3 select{
+    margin-left: 90px;
+    width: 220px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.item-form-group2 input{
+    margin-left: 78px;
+    width: 215px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.item-form-group4 select{
+    margin-left: 60px;
+    width: 220px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+
 

@@ -28,6 +28,7 @@
                 <input type="text" name="search" placeholder="Please Search Here!">
 
                 <button type="submit" class="gotoregister">Search</button>
+                <button>Reset</button>
             </form>
         </div>
     </div>

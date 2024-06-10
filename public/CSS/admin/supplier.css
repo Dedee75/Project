@@ -15,7 +15,6 @@
     font-size: 20px;
     margin: 30px 30px 30px 30px;
     border-radius: 10px;
-    border: none;
 }
 
 .supplierRegister a
@@ -35,7 +34,6 @@
   }
   .supplier-register{
 
-   background-color: rgb(215, 215, 215);
    padding:20px;
    width: 700px;
   }
@@ -43,7 +41,7 @@
 
 .supplier input
 {
-        width: 825px;
+        width: 625px;
         height: 40px;
         border-radius: 10px;
         border-color: #3C69C4;
@@ -75,17 +73,23 @@
     width: 500px;
     height: 30px;
     /* margin-left: 30px; */
-    border: none;
+    border-radius: 5px;
+
   }
 
 
   .supplier-form-group2 textarea{
-    /* margin-left: 40px; */
-    border: none;
+    border-radius: 5px;
+
   }
 
   .main-register-form{
-    margin: 300px;
+        display: flex;
+        flex-direction:column ;
+        justify-content: center;
+        align-items: center;
+
+
   }
 
   .supplier-register h2{
@@ -103,3 +107,26 @@
     justify-content: space-evenly;
     align-items: center;
   }
+
+  .supplier-form-group{
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+
+.supplier-form-group input{
+    margin-left: 150px;
+    border-radius: 5px;
+}
+
+.supplier-button{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+

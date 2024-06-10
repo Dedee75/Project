@@ -16,7 +16,7 @@
         <div>
             <div class="subcategory">
                 <div class="supplierRegister">
-                    <button>Hi Customer</button>
+                    <button>Hi</button>
                 </div>
 
                 <div class="staff">
@@ -25,6 +25,8 @@
                         <input type="text" name="search" placeholder="Please Search Here!">
 
                         <button type="submit" class="gotoregister">Search</button>
+
+                        <button>Reset</button>
                     </form>
                 </div>
             </div>

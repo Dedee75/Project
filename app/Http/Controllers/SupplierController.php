@@ -20,7 +20,7 @@ class SupplierController extends Controller
     }
 
     public function supplierList(){
-        $supplierlist = Supplier::where('status' ,'=' ,'Active')
+        $supplierlist = Supplier::where('status' ,'=' ,'Active')->orderBy('suppliers.id','DESC')
         ->get();
         // dd($stafflist);
         return view('supplier.supplierlist', compact('supplierlist'));

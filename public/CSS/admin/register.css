@@ -70,7 +70,13 @@
     border-radius: 5px;
 }
 
-    
+.register-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 
 
   @media only screen and (min-width: 300px ) and (max-width: 600px) {

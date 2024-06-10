@@ -31,7 +31,7 @@ $updatestatus = true;
             @endif
             <input type="hidden" name="id" value="{{$updatestatus == true ? $supplier ->id : ''}}">
             <div >
-                <div class="supplier-form-group">
+                <div class="form-group">
                     <label for="name" class="col-25"> Name</label>
                     <input type="text" class="col-75" name="name" @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $supplier ->name : old('name')}}" id="name" placeholder="Enter  Name">
                 </div>
@@ -39,7 +39,7 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="supplier-form-group">
+                <div class="form-group">
                     <label for="companyname">Company Name</label>
                     <input type="text" name="companyname" @error ('name') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $supplier ->companyname : old('companyname')}}" id="companyname" placeholder="Enter Company Name">
                 </div>
@@ -48,7 +48,7 @@ $updatestatus = true;
                 @enderror
 
 
-                <div class="supplier-form-group">
+                <div class="form-group">
                     <label for="email"> Email</label>
                     <input type="text" name="email" @error ('email') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $supplier ->email : old('email')}}" id="email" placeholder="Enter Email">
                 </div>
@@ -56,7 +56,7 @@ $updatestatus = true;
                 <div style="color: rgb(238, 94, 94);"><i class="fas fa-exclamation-circle"></i> {{ $message }}</div>
                 @enderror
 
-                <div class="supplier-form-group">
+                <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="text" name="phone" @error ('phone') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror value="{{$updatestatus == true ? $supplier ->phone : old('phone')}}" id="phone" placeholder="Enter Phone Number ">
                 </div>
@@ -65,7 +65,7 @@ $updatestatus = true;
                 @enderror
 
 
-                <div class="supplier-form-group">
+                <div class="form-group">
                     <label for="address">Address</label>
                     <textarea name="address" id="address" @error ('address') style="border-bottom: 1px solid red; background-color:rgb(255, 238, 238);" @enderror cols="74" rows="8">{{$updatestatus == true ? $supplier ->address : ''}} </textarea>
                 </div>
@@ -83,12 +83,13 @@ $updatestatus = true;
                     @enderror
                 </div>
 
-                <div class="subCButton">
+                <div class="supplier-button">
                     <button class=" btn3">{{$updatestatus == true ? 'Update': 'Register'}}</button>
-                    <button class=" btn4">Cancel</button>
+                    <a href="{{{route('supplierList')}}}" class="cancel-btn"><p>Cancel</p> </a>
                 </div>
             </div>
         </form>
+
     </div>
 
 </div>

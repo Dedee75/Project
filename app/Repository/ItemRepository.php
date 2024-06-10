@@ -71,9 +71,7 @@ class ItemRepository
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
         $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
 
-        dd($searchData);
-
-        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->get();
+        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->orderby('items.id', 'DESC')->get();
         return view('item.itemlist',compact('itemlist','supplier','subcategory','brand'));
     }
 }

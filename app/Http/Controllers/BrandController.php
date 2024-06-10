@@ -39,6 +39,7 @@ class BrandController extends Controller
         ->join('suppliers', 'suppliers.id','=','brands.supplier_id')
         ->join('staff','staff.person_id','=','brands.staff_id')
         ->join('people','people.id', '=','staff.person_id')
+        ->orderBy('brands.id','DESC')
         ->where('brands.status','=', 'Active')
         ->select('brands.*','people.name as staffname','suppliers.name as suppliername')->get();
         // dd($brandlist);
