@@ -183,7 +183,45 @@
                 </div>
             </div>
         </div>
-        <div></div>
+
+        <div class="main-latest-product-form">
+            <h1>LATEST PRODUCTS</h1>
+
+            <div class="latest-product-form">
+                <div class="all-in-one-css">
+                    <img src="{{asset('frontpart/img/nwr.jpg')}}" alt="" width="350px">
+                    <h3>Windows All-in-one PCs</h3>
+                    <p>Learn More</p>
+                </div>
+
+                <div>
+
+                    <div class="latest-products">
+                        <img src="{{asset('frontpart/img/photo_2023-10-18_17-56-51.jpg')}}" alt="" width="150px">
+                        <div>
+                            <h4>Dell UltraSharp 27 4K Monitor</h4>
+                            <p>Learn More</p>
+                        </div>
+                    </div>
+
+                    <div class="latest-products">
+                        <img src="{{asset('frontpart/img/photo_2023-10-18_17-56-51.jpg')}}" alt="" width="150px">
+                        <div>
+                            <h4>Dell UltraSharp 27 4K Monitor</h4>
+                            <p>Learn More</p>
+                        </div>
+                    </div>
+
+                    <div class="latest-products">
+                        <img src="{{asset('frontpart/img/photo_2023-10-18_17-56-51.jpg')}}" alt="" width="150px">
+                        <div>
+                            <h4>Dell UltraSharp 27 4K Monitor</h4>
+                            <p>Learn More</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection
