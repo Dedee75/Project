@@ -124,7 +124,8 @@ class ItemController extends Controller
         $item = Item::find($id);
         $item->status='Inactive';
         $item->save();
-        return redirect()->route('itemList');
+        $response = $this->itemRepository->numberofpurchase($id);
+        return $response;
     }
 
     public function search(Request $request){

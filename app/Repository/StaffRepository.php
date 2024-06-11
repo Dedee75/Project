@@ -18,6 +18,14 @@ class StaffRepository {
         return redirect()->route('staffList');
     }
 
+    public function staffdelete($id){
+        $staff = Staff::where('person_id',$id)->first();
+        // dd($customer);
+        $staff->status='Inactive';
+        $staff->save();
+        return redirect()->route('staffList');
+    }
+
     public function searchRecords(Request $request)
     {
 

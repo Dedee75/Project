@@ -43,7 +43,7 @@
                         <h4>Total Purchase</h4>
                         <div class="price">
                             <i class="fa-solid fa-headphones"></i>
-                            <p>325,3322 $</p>
+                            <p>{{$totalpurchase}} $</p>
                         </div>
                     </div>
                     <div class="data-box">
@@ -57,7 +57,7 @@
                         <h4>Number Of Purchase</h4>
                         <div class="price">
                             <i class="fa-solid fa-headphones"></i>
-                            <p> 400 </p>
+                            <p> {{$numberofpurchase}} </p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     <h4>Total Customer</h4>
                     <div class="price">
                         <i class="fa-solid fa-headphones"></i>
-                        <p> 4 </p>
+                        <p>{{$totalcustomer}}</p>
                     </div>
 
                 </div>
@@ -79,7 +79,7 @@
                     <h4>In Active Staff</h4>
                     <div class="price">
                         <i class="fa-solid fa-headphones"></i>
-                        <p> 2 </p>
+                        <p> {{$inactivestaff}} </p>
                     </div>
 
                 </div>
@@ -89,7 +89,7 @@
                     <h4>Active Staff</h4>
                     <div class="price">
                         <i class="fa-solid fa-headphones"></i>
-                        <p> 12 </p>
+                        <p>{{$activestaff}}</p>
                     </div>
 
                 </div>
@@ -99,7 +99,7 @@
                     <h4>Total Supplier</h4>
                     <div class="price">
                         <i class="fa-solid fa-headphones"></i>
-                        <p> 24 </p>
+                        <p> {{$totalsupplier}} </p>
                     </div>
 
                 </div>

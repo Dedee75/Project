@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use App\Models\Person;
 use Illuminate\Support\Facades\DB;
 use App\Repository\AdminRepository;
+use App\Models\customer;
+use App\Models\Item;
 
 class AdminController extends Controller
 {
@@ -18,7 +20,18 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.adminDashboard');
+        $totalcustomer = DB::table('customers')->where('customers.status','=','Active')->count();
+        $inactivestaff =DB::table('staff')->where('staff.status','=','Inactive')->count();
+        $activestaff =DB::table('staff')->where('staff.status','=','Active')->count();
+        $totalsupplier =DB::table('suppliers')->where('suppliers.status','=','Active')->count();
+        $numberofpurchase =DB::table('items')->where('items.status','=','Active')->count();
+
+        $purchase = Item::where('status','Active')->sum('purchaseprice');
+        $qty = Item::where('status','Active')->sum('qty');
+
+        $totalpurchase = $purchase * $qty;
+
+        return view('admin.adminDashboard',compact('totalcustomer','inactivestaff','activestaff','totalsupplier','numberofpurchase','totalpurchase'));
     }
 
     public function login(){

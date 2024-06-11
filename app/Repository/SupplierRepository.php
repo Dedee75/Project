@@ -30,4 +30,13 @@ class SupplierRepository
 
         return view('supplier.supplierlist' ,compact('supplierlist'));
     }
+
+    public function supplierdelete($id){
+        $supplier = Supplier::find($id);
+        // dd($customer);
+        $supplier->status='Inactive';
+        $supplier->save();
+        return redirect()->route('supplierList');
+    }
+
 }

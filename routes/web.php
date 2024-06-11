@@ -25,7 +25,7 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/home',[CustomerController::class,'home'])->name('homepage');
+Route::get('/customer/home',[CustomerController::class,'home'])->name('homepage');
 //Customer Start
 Route::get('/customer/login',[CustomerController::class,'login'])->name('customeLogin');
 Route::post('/customer/login/process',[LoginController::class,'login'])->name('customerLoginProcess');

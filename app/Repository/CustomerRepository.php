@@ -23,6 +23,14 @@ class CustomerRepository
        return redirect()->route('homepage');
     }
 
+    public function customerdelete($id){
+        $customer = Customer::where('person_id',$id)->first();
+        // dd($customer);
+        $customer->status='Inactive';
+        $customer->save();
+        return redirect()->route('customerList');
+    }
+
     public function searchRecords(Request $request)
     {
 

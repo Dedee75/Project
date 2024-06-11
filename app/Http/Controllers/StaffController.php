@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Person;
 use App\Repository\StaffRepository;
+use App\Repository\CustomerRepository;
 use App\Models\Customer;
 use App\Models\Staff;
 use App\Models\Subcategory;
@@ -20,9 +21,14 @@ class StaffController extends Controller
 {
     private $staffRepository;
 
-    public function  __construct(StaffRepository $staffrepository){
-        $this->staffRepository = $staffrepository;
+    private $customerRepository;
+
+    public function  __construct(StaffRepository $Staffrepository , CustomerRepository $CustomerRepository){
+        $this->staffRepository = $Staffrepository;
+        $this->customerRepository = $CustomerRepository;
     }
+
+
     // public function login(){
     //     return view('Login.Adminlogin');
     // }
@@ -53,8 +59,11 @@ class StaffController extends Controller
         $customer = Person::find($id);
         $customer->status='Inactive';
         $customer->save();
-        return redirect()->route('customerList');
+        $response = $this->customerRepository->customerdelete($id);
+        return $response;
+
     }
+
 
     public function updateprocess(Request $request):RedirectResponse{
 
@@ -152,7 +161,8 @@ class StaffController extends Controller
         $customer = Person::find($id);
         $customer->status='Inactive';
         $customer->save();
-        return redirect()->route('staffList');
+        $response = $this->staffRepository->staffdelete($id);
+        return $response;
     }
 
     // public function itemregister(){

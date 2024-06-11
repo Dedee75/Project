@@ -102,7 +102,8 @@ class SupplierController extends Controller
         $supplier = Supplier::find($id);
         $supplier->status='Inactive';
         $supplier->save();
-        return redirect()->route('supplierList');
+        $response = $this->supplierRepository->supplierdelete($id);
+        return $response;
     }
 
     public function search(Request $request){

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('CSS/customer/login/login.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/customer/register/register.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/customer/layout.css')}}">
+    <link rel="stylesheet" href="{{asset('frontpart/home.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js">
@@ -26,10 +27,10 @@
                         <img src=""style="width:30px; height:30px; border-radius: 50%;">
                     </div>
                     <div>
-                        <a href="">Guest</a>
+                        <a href="{{route('homepage')}}">Guest</a>
                     </div>
                     <div>
-                        <a href="">Login</a>
+                        <a href="{{route('customeLogin')}}">Login</a>
                     </div>
 
                     <div>

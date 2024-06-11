@@ -74,4 +74,12 @@ class ItemRepository
         $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->orderby('items.id', 'DESC')->get();
         return view('item.itemlist',compact('itemlist','supplier','subcategory','brand'));
     }
+
+    public function numberofpurchase($id){
+        $item = Item::find($id);
+        // dd($customer);
+        $item->status='Inactive';
+        $item->save();
+        return redirect()->route('itemList');
+    }
 }
