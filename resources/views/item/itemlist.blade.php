@@ -107,25 +107,22 @@
             <td>{{$item->id}}</td>
             <td>{{$item->name}}</td>
             <td>
-                @if($item->supplier)
-                    {{ $item->supplier->name }}
-                @else
-                    No Supplier
-                @endif
+
+                    {{ $item->suppliername }}
+
             </td>
             <td>{{$item->saleprice}}</td>
             <td>{{$item->purchaseprice}}</td>
             <td>
-                @if($item->subcategory)
-                    {{ $item->subcategory->name }}
-                @else
-                    No Supplier
-                @endif
+
+                    {{ $item->subcategory}}
+
             </td>
-            <td>{{$item->brand->name}}</td>
+            {{-- {{dd($item)}} --}}
+            <td>{{$item->brandname}}</td>
             <td>{{$item->qty}}</td>
             <td>{{$item->description}}</td>
-            <td><img width="80" height="80" src="{{asset('/img/item/' .$item->item_photo->photo)}}"/></td>
+            <td><img width="80" height="80" src="{{asset('/img/item/' .$item->  photo)}}"/></td>
             <td>{{$item->status}}</td>
             <td>
 

@@ -18,7 +18,16 @@ class CustomerController extends Controller
     }
 
     public function home(){
-        return view('customer.home');
+        $itemlist = DB::table('items')
+                    ->join('item__photos','item__photos.item_id', '=', 'items.id')
+                    ->where('item__photos.primaryphoto','=', 1)
+                    ->where('items.status','=','Active')
+                    ->select('items.*','item__photos.photo as photo')
+                    ->orderBy('items.id','DESC')
+                    ->limit(6)
+                    ->get();
+                    // dd($itemlist);
+        return view('customer.home', compact('itemlist'));
     }
 
     public function login(){
@@ -58,4 +67,6 @@ class CustomerController extends Controller
         $response = $this->customerRepository->searchRecords($request);
         return $response;
     }
+
+
 }

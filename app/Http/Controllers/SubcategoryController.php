@@ -25,29 +25,35 @@ class SubcategoryController extends Controller
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
         $category = DB::table('categories')->select('id','name')->where('status','=','Active')->get();
         // dd($role);
-        $subcategorylist = Subcategory::with(['category','staff'])->orderBy('subcategories.id','DESC')->whereHas('category', function ($query) {
-            $query->where('subcategories.status', 'Active');
-        })->get();
-        // dd($subcategorylist[0]->staff);
+        // $subcategorylist = Subcategory::with(['category','staff'])->orderBy('subcategories.id','DESC')->whereHas('category', function ($query) {
+        //     $query->where('subcategories.status', 'Active');
+        // })->get();
+        $subcategorylist = DB::table('categories')
+                            ->join('subcategories', 'subcategories.category_id', '=' , '.categories.id')
+                            ->where('categories.status','=', 'Active')
+                            ->select('subcategories.*', 'categories.name as categoryname')
+                            ->orderByDesc('subcategories.id')
+                            ->get();
+        // dd($subcategorylist);
         return view('subcategory.subcategorylist', compact('subcategorylist','category'));
     }
 
     public function subcategoryregister(){
         $category = DB::table('categories')->select('id', 'name')->where('status','=','Active')->get();
-        // dd($role);
         return view('subcategory.subcategoryregister',compact('category'));
+
     }
 
     public function subcategoryregisterprocess(Request $request):RedirectResponse{
-
+//   dd($request);
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'desription' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
             // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
             // 'password_confirmation' => 'required|string|min:8|confirmed',
         ]);
 
-        // dd($request);
+//         dd($request);
         $uuid = Str::uuid()->toString();
         $subcategory = new Subcategory();
         $subcategory->name = $request->name;

@@ -48,22 +48,22 @@ class ItemRepository
         $searchData = [];
 
         if($request->search !=' ' && isset($request->search)){
-            $search_name=['name','LIKE','%'.$request->search.'%'];
+            $search_name=['items.name','LIKE','%'.$request->search.'%'];
             array_push($searchData,$search_name);
         }
 
         if(isset($request->supplier)){
-            $search_supplier=['supplier_id','LIKE','%'.$request->supplier.'%'];
+            $search_supplier=['items.supplier_id','=',$request->supplier];
             array_push($searchData,$search_supplier);
         }
 
         if(isset($request->subcategory)){
-            $search_subcategory=['subcategory_id','LIKE','%'.$request->subcategory.'%'];
+            $search_subcategory=['items.subcategory_id','=',$request->subcategory];
             array_push($searchData,$search_subcategory);
         }
 
         if(isset($request->brand)){
-            $search_brand=['brand_id','LIKE','%'.$request->brand.'%'];
+            $search_brand=['items.brand_id','=',$request->brand];
             array_push($searchData,$search_brand);
         }
 
@@ -71,7 +71,18 @@ class ItemRepository
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
         $brand = DB::table('brands')->select('id', 'name')->where('status','=','Active')->get();
 
-        $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->orderby('items.id', 'DESC')->get();
+        // $itemlist = Item::with('brand','supplier','subcategory','item_photo')->where($searchData)->orderby('items.id', 'DESC')->get();
+        $itemlist = DB::table('items')
+        ->join('item__photos','item__photos.item_id', '=', 'items.id')
+        ->join('brands','brands.id', '=', 'items.brand_id')
+        ->join('subcategories','subcategories.id', '=', 'items.subcategory_id')
+        ->join('suppliers','suppliers.id', '=', 'items.supplier_id') ->where($searchData)
+        ->where('item__photos.primaryphoto','=', 1)
+        ->where('items.status','=','Active')
+
+        ->select('items.*','item__photos.photo as photo','brands.name as brandname', 'subcategories.name as subcategory','suppliers.name as suppliername')
+        ->orderBy('items.id','DESC')
+        ->get();
         return view('item.itemlist',compact('itemlist','supplier','subcategory','brand'));
     }
 

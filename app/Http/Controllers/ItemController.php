@@ -28,9 +28,25 @@ class ItemController extends Controller
 
         // compact('supplier','subcategory','brand');
 
-        $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])->orderBy('items.id','DESC')->whereHas('item_photo',function($query){
-            $query->where('items.status' ,'=' ,'Active');
-        })->get();
+        // $itemlist = Item::with(['supplier','subcategory','brand','item_photo'])
+        //     ->orderBy('items.id','DESC')
+        //     ->whereHas('item_photo',function($query){
+        //         $query->where([
+        //             ['items.status' ,'=' ,'Active'],
+        //             ['primaryphoto','=',1]
+        //         ]);
+        // })->get();
+        $itemlist = DB::table('items')
+                    ->join('item__photos','item__photos.item_id', '=', 'items.id')
+                    ->join('brands','brands.id', '=', 'items.brand_id')
+                    ->join('subcategories','subcategories.id', '=', 'items.subcategory_id')
+                    ->join('suppliers','suppliers.id', '=', 'items.supplier_id')
+                    ->where('item__photos.primaryphoto','=', 1)
+                    ->where('items.status','=','Active')
+                    ->select('items.*','item__photos.photo as photo','brands.name as brandname', 'subcategories.name as subcategory','suppliers.name as suppliername')
+                    ->orderBy('items.id','DESC')
+                    ->get();
+        // dd($itemlist);
         return view('item.itemlist', compact('itemlist','supplier','subcategory','brand'));
 
     }
@@ -43,16 +59,16 @@ class ItemController extends Controller
 
     public function itemregisterprocess(Request $request):RedirectResponse{
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'qty' => 'required|string|max:50',
-            'sprice' => 'required|string|max:255',
-            'pprice' => 'required|string|max:255',
-            'desription' => 'required|string|max:255',
-            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
-            // 'password_confirmation' => 'required|string|min:8|confirmed',
-            'image' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'qty' => 'required|string|max:50',
+        //     'sprice' => 'required|string|max:255',
+        //     'pprice' => 'required|string|max:255',
+        //     'desrciption' => 'required|string|max:255',
+        //     // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+        //     // 'password_confirmation' => 'required|string|min:8|confirmed',
+        //     'image' => 'required',
+        // ]);
 
         // dd($request);
         // $subcategoryid= $request->supplier;
@@ -94,16 +110,16 @@ class ItemController extends Controller
 
     public function updateprocess(Request $request):RedirectResponse{
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'qty' => 'required|string|max:50',
-            'sprice' => 'required|string|max:255',
-            'pprice' => 'required|string|max:255',
-            'desription' => 'required|string|max:255',
-            // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
-            // 'password_confirmation' => 'required|string|min:8|confirmed',
-            'image' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'qty' => 'required|string|max:50',
+        //     'sprice' => 'required|string|max:255',
+        //     'pprice' => 'required|string|max:255',
+        //     'desrciption' => 'required|string|max:255',
+        //     // 'password' => 'required|min:8|regex:#(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])#',
+        //     // 'password_confirmation' => 'required|string|min:8|confirmed',
+        //     'image' => 'required',
+        // ]);
 
         $item = Item::find($request->id);
         $item->name = $request->name;
@@ -133,4 +149,6 @@ class ItemController extends Controller
         $response = $this->itemRepository->searchRecords($request);
         return $response;
     }
+
+    
 }

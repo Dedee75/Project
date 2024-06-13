@@ -62,11 +62,11 @@
         {{-- {{dd($customer->customer->image)}} --}}
         <td>{{$subcategory->id}}</td>
         <td>{{$subcategory->name}}</td>
-        <td>{{$subcategory->category->name}}</td>
+        <td>{{$subcategory->categoryname}}</td>
         <td>{{$subcategory->description}}</td>
         <td>{{$subcategory->date}}</td>
         <td>{{$subcategory->status}}</td>
-        <td>{{$subcategory->category->action}}
+        <td>
 
             <a href="{{url('/admin/subcategory/edit/'.$subcategory->id)}}">Edit</a>
             l

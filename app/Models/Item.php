@@ -31,7 +31,7 @@ class Item extends Model
 
     public function item_photo():HasOne
     {
-        return $this->hasone(Item_Photo::class, 'id');
+        return $this->hasone(Item_Photo::class, 'item_id','id');
     }
 
 }
