@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('CSS/customer/register/register.css')}}">
     <link rel="stylesheet" href="{{asset('CSS/customer/layout.css')}}">
     <link rel="stylesheet" href="{{asset('frontpart/home.css')}}">
+    <link rel="stylesheet" href="{{asset('frontpart/productlist.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js">
@@ -34,7 +35,7 @@
                     </div>
 
                     <div>
-                        <a href="">Create An Account</a>
+                        <a href="{{route('customerRegister')}}">Create An Account</a>
                     </div>
 
                     <div>
@@ -52,11 +53,11 @@
 
                 <div>
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link" href="#">Product</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('homepage')}}">Home</a>
+                        <a class="nav-link" href="{{route('productList')}}">Product</a>
                         <a class="nav-link" href="#">About Us </a>
-                        <a class="nav-link" href="#">Contact Us  </a>
-                        <a class="nav-link" href="#">Feedback </a>
+                        <a class="nav-link" href="#">Contact Us </a>
+                        <a class="nav-link" href="#">Feedback</a>
                     </div>
                 </div>
 

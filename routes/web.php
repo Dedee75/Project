@@ -26,10 +26,12 @@ Auth::routes();
 
 
 Route::get('/customer/home',[CustomerController::class,'home'])->name('homepage');
+Route::get('/customer/productlist',[CustomerController::class,'productlist'])->name('productList');
+Route::get('/customer/productdetail',[CustomerController::class,'productdetail'])->name('productDetail');
 //Customer Start
 Route::get('/customer/login',[CustomerController::class,'login'])->name('customeLogin');
 Route::post('/customer/login/process',[LoginController::class,'login'])->name('customerLoginProcess');
-Route::get('/customer/register',[CustomerController::class,'register']);
+Route::get('/customer/register',[CustomerController::class,'register'])->name('customerRegister');
 Route::post('/customer/register/process',[CustomerController::class,'process'])->name('customer-register-process');
 
 // Route::get('/admin/login',[CustomerController::class,'login'])->name('customerLogin');

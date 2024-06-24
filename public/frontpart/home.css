@@ -91,6 +91,21 @@
     height: 500px;
 }
 
+.slide-flex img{
+    width: 400px;
+}
+
+.slide-flex-second{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+}
+
+
+.slide-flex-second img{
+    width: 280px;
+}
 .text{
     color: black;
 }
@@ -120,6 +135,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 40px;
 }
 
 .new-arrivel{
@@ -168,13 +184,36 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .all-in-one-css p{
     color: aqua;
 }
 
+.all-in-one-desktop p{
+    color: aqua;
+}
+
+
+.all-in-one-css{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.best-selling-laptop
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.best-selling-laptop p{
+    color: aqua;
+}
 .latest-products{
     display: flex;
     justify-content: space-around;
@@ -186,3 +225,4 @@
 .latest-products p{
     color: aqua;
 }
+
