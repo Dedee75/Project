@@ -20,7 +20,7 @@
                                 <h4>{{$item->description}}$</h4>
                                 <p>Read More</p>
                             </div>
-                        </div>  
+                        </div>
                     @endforeach
                     </div>
                 </div>
@@ -142,7 +142,10 @@
                              <h3>{{ $item->name }}</h3>
                             <h4>{{$item->saleprice}}$</h4>
                             <p>Read More</p>
+
                         </div>
+
+
                     </div>
                 @endforeach
             </div>

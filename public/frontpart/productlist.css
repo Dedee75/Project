@@ -10,11 +10,11 @@
     height: 150px;
 }
 
-.itemImage p{
+.itemImage p {
     text-align: center;
 }
 
-.just-for-you-page h2{
+.just-for-you-page h2 {
     text-align: center;
     height: 60px;
 }
@@ -45,18 +45,16 @@
     width: 100%;
 } */
 
-.just-for-you-flex img{
+.just-for-you-flex img {
     width: 200px;
 }
 
-
-
-.just-for-you-items{
+.just-for-you-items {
     display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-items: center;
-  align-items: center;
-  height: 600px;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 600px;
 }
 
 /* .just-for-you-itemlist{
@@ -65,13 +63,12 @@
     align-items: center;
 } */
 
-
-.just-for-you img{
+.just-for-you img {
     width: 200px;
 }
 
-.just-for-you-flex p{
-    color: #35FFFF;
+.just-for-you-flex p {
+    color: #35ffff;
 }
 
 /* The Modal (background) */
@@ -79,15 +76,15 @@
 .container {
     position: relative;
     width: 50%;
-  }
+}
 
-  .image {
+.image {
     display: block;
     width: 100%;
     height: auto;
-  }
+}
 
-  .overlay {
+.overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -96,15 +93,15 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .5s ease;
-    background-color: #008CBA;
-  }
+    transition: 0.5s ease;
+    background-color: #008cba;
+}
 
-  .container:hover .overlay {
+.container:hover .overlay {
     opacity: 1;
-  }
+}
 
-  .text {
+.text {
     color: white;
     font-size: 20px;
     position: absolute;
@@ -114,22 +111,116 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+}
 
-  .popular-prroduct-container h2{
+.popular-prroduct-container h2 {
     text-align: center;
     margin-top: 50px;
-  }
+}
 
-  .popular-product
-{
+.popular-product {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 100vh;
 }
 
-.all-in-one-laptop img{
+.all-in-one-laptop img {
     width: 200px;
     margin-top: 20px;
+}
+
+.filter {
+    width: 20%;
+}
+
+.filter p {
+    margin-left: 20px;
+}
+
+.filter h3 {
+    text-align: center;
+}
+
+.filter button {
+    width: 87%;
+    margin-top: 30px;
+    background-color: #35ffff;
+    color: white;
+    border: none;
+    height: 27px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.minmaxPrice {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.minmaxPrice input {
+    width: 120px;
+}
+
+.partaner-form h5 {
+    margin-left: 20px;
+}
+
+.brand-dropdown select {
+    margin-left: 20px;
+    width: 260px;
+    height: 30px;
+}
+
+.our-partaner h4 {
+    text-align: center;
+}
+
+.partaner-logo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.productlist img{
+    max-width: 150px;
+    height: 150px;
+}
+
+.productlist-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.productlist{
+    margin-top: 100px;
+}
+
+.product-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 1000px;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.product-detail-btn{
+
+    background-color: #35ffff;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.productlist a{
+    text-decoration: none;
 }

@@ -27,7 +27,7 @@ Auth::routes();
 
 Route::get('/customer/home',[CustomerController::class,'home'])->name('homepage');
 Route::get('/customer/productlist',[CustomerController::class,'productlist'])->name('productList');
-Route::get('/customer/productdetail',[CustomerController::class,'productdetail'])->name('productDetail');
+Route::get('/customer/productdetail/{id}',[CustomerController::class,'productdetail'])->name('productDetail');
 //Customer Start
 Route::get('/customer/login',[CustomerController::class,'login'])->name('customeLogin');
 Route::post('/customer/login/process',[LoginController::class,'login'])->name('customerLoginProcess');

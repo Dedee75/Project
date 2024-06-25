@@ -21,7 +21,85 @@
 
 
     <div>
+        <div class="productlist-container">
+            <div class="filter">
+                <h3>Filters</h3>
 
+                <div>
+                    <div>
+                        <p>price</p>
+
+                        <form action="">
+
+                            <div class="minmaxPrice">
+                                <div>
+                                    <h5>Minimum price</h5>
+                                    <input type="number" name="minprice" id="minprice">
+                                </div>
+
+                                <div>
+                                    <h5>Maximum price</h5>
+                                    <input type="number" name="maxprice" id="maxprice">
+                                </div>
+                            </div>
+
+                            <button>Find</button>
+                        </form>
+
+                        <div>
+                            <form action="" class="partaner-form">
+
+                                <h5>Brand</h5>
+
+                                <div class="brand-dropdown">
+
+                                    <select name="customer-brand">
+                                        <option value="">Select Brand</option>
+                                        @foreach ($brand as $brand)
+                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <button>Find</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="our-partaner">
+                        <h4>Our Partaner</h4>
+                        <div class="partaner-logo">
+                            @foreach ($supplierimage as $image)
+                                <img src="{{ asset('img/supplier/' . $image->image) }}"
+                                    style="width: 50px; height:50px; border-radius:50px;" alt="">
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div>
+                <div class="product-detail">
+                    @foreach ($productlist as $item)
+                        <div class="productlist">
+                            <img src="{{ asset('img/item/' . $item->photo) }}" alt="">
+                            <h3>{{ $item->name }}</h3>
+                            <h4>{{$item->description}}</h4>
+                            <h4>{{ $item->saleprice }}$</h4>
+                            <a href="{{url('/customer/productdetail/'.$item->id)}}" class="product-detail-btn">
+                                Detail
+                            </a>
+                        </div>
+
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
 
 

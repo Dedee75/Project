@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('CSS/customer/layout.css')}}">
     <link rel="stylesheet" href="{{asset('frontpart/home.css')}}">
     <link rel="stylesheet" href="{{asset('frontpart/productlist.css')}}">
+    <link rel="stylesheet" href="{{asset('frontpart/productDetail.css')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js">
