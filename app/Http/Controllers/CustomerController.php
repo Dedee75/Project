@@ -8,6 +8,7 @@ use App\Models\Person;
 use Illuminate\Support\Facades\DB;
 use App\Repository\CustomerRepository;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -183,20 +184,18 @@ class CustomerController extends Controller
 
         $relatedproducts = DB::table('items')
         ->join('item__photos', 'item__photos.item_id', '=', 'items.id')
-        ->join('brands','brands.id','=', 'items.brand_id')
-        ->join('subcategories', 'subcategories.id', '=','items.subcategory_id' )
-        ->join('categories', 'categories.id', '=', 'subcategories.category_id')
-
         ->where('item__photos.primaryphoto', '=', 1)
-        ->where('brands.id', '=','items.brand_id' )
-        ->where('subcategories.id', '=',$latestaccessory[0]->subcategory_id )
-        // ->where('items.id', '=', $latestaccessory[0]->id)
         ->where('items.status', '=', 'Active')
-        ->select('items.*', 'item__photos.photo as photo','items.name as name','items.saleprice as price','items.id as id')
+        ->where('items.subcategory_id', '=',$latestaccessory[0]->subcategory_id )
+        // ->where('items.brand_id','=', $latestaccessory[0]->brand_id)
+
+        ->select('items.*', 'items.id as id','items.name as itemname',
+                    'items.saleprice as saleprice','item__photos.*', 'item__photos.photo as image')
         ->orderBy('items.id', 'DESC')
-        // ->limit(1)
+        ->limit(4)
         ->get();
-        dd($relatedproducts);
+
+        // dd($relatedproducts);
 
         $supplier = DB::table('suppliers')->select('id', 'name')->where('status','=','Active')->get();
         $subcategory = DB::table('subcategories')->select('id', 'name')->where('status','=','Active')->get();
@@ -246,4 +245,6 @@ class CustomerController extends Controller
         $response = $this->customerRepository->searchRecords($request);
         return $response;
     }
+
+    public function cartItem()
 }

@@ -16,7 +16,7 @@
 <body>
     <header>
         <div class="admin-header">
-            <img src="{{asset('img/shop logo.png')}}" alt="" style="width:50px; height:50px; border-radius:50px;" >
+            <img src="{{asset('frontpart/img/png-clipart-blue-logo-globe-world-computer-icons-best-free-globe-miscellaneous-image-file-formats.png      ')}}" alt="" style="width:50px; height:50px; border-radius:50px;" >
             <h1>Tech 2 Go PC & ACCESSORIES</h1>
         </div>
     </header>

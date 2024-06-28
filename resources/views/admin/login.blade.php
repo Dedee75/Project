@@ -11,7 +11,7 @@
 
 
                 <div>
-                    <img src="" alt="" style="width:300px; height:300px;">
+                    <img src="{{asset('frontpart/img/png-clipart-blue-logo-globe-world-computer-icons-best-free-globe-miscellaneous-image-file-formats.png')}}" alt="" style="width:300px; height:300px;">
                 </div>
 
                 <div >

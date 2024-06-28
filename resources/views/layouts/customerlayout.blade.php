@@ -26,7 +26,7 @@
                <p> Welcome To Our Online Shop</p>
                 <div class="top-nav-login">
                     <div>
-                        <img src=""style="width:30px; height:30px; border-radius: 50%;">
+                        <img src="{{asset('frontpart/img/png-clipart-blue-logo-globe-world-computer-icons-best-free-globe-miscellaneous-image-file-formats.png')}}"style="width:30px; height:30px;">
                     </div>
                     <div>
                         <a href="{{route('homepage')}}">Guest</a>
@@ -48,7 +48,7 @@
 
             <div class="navigation">
                 <div class="mainLogo">
-                    <img src="" alt="" style="width:40px; height:40px; border-radius: 50%;">
+                    <img src="{{asset('frontpart/img/png-clipart-blue-logo-globe-world-computer-icons-best-free-globe-miscellaneous-image-file-formats.png')}}"style="width:30px; height:30px; margin:10px 10px 0px 0px;">
                     <p>Tech 2 Go</p>
                 </div>
 
@@ -70,7 +70,10 @@
                 </div>
 
                 <div>
-                    <img src="" alt="" style="width:30px; height:30px; border-radius: 50%;">
+                    <a href="">
+
+                        <img src="{{asset('frontpart/img/shopping-cart.png')}}" alt="" style="width:30px; height:30px; ">
+                    </a>
                 </div>
 
             </div>
