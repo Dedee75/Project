@@ -246,5 +246,5 @@ class CustomerController extends Controller
         return $response;
     }
 
-    public function cartItem()
+
 }
